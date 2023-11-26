@@ -14,15 +14,15 @@ const FaQ = () => {
       answer: "konsultan kesehatan mental adalah seseorang yang memberikan konseling dan dukungan emosional kepada klien yang mengalami masalah kesehatan mental, serta membantu mereka mengembangkan strategi dan intervensi yang sesuai dengan kebutuhan mereka.",
     },
     {
-      question: "How can I make payment using Paypal?",
+      question: "Layanan apa yang Anda tawarkan sebagai konsultan kesehatan mental?",
       answer: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
     },
     {
-      question: "Can I cancel my plan?",
+      question: "Apa manfaat yang bisa saya dapatkan jika bekerja sama dengan konsultan kesehatan mental?",
       answer: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
     },
     {
-      question: "How can I reach to support?",
+      question: "Jenis masalah apa saja yang dapat dibantu oleh konsultan kesehatan mental?",
       answer: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
     },
   ];
