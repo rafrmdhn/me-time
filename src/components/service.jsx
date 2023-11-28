@@ -10,27 +10,27 @@ const Service = () => {
         },
         {
             title: "Stress",
-            link: "#",
+            link: "/pages/TestStres",
             imageSrc: "https://siplawfirm.id/wp-content/uploads/2022/12/stress.webp",
         },
         {
             title: "Suicide",
-            link: "#",
+            link: "/pages/TestSuicide",
             imageSrc: "https://articles-1mg.gumlet.io/articles/wp-content/uploads/2019/10/prevent-suicide.png?compress=true&quality=80&w=640&dpr=2.6",
         },
         {
             title: "Cemas",
-            link: "#",
+            link: "/pages/TestCemas",
             imageSrc: "https://cdn.hellosehat.com/wp-content/uploads/2017/11/4-Penyakit-yang-Ditandai-Cemas-Berlebihan-Selain-Gangguan-Kecemasan.jpg?w=1200&q=75",
         },
         {
             title: "Personality",
-            link: "#",
+            link: "/pages/TestPersonality",
             imageSrc: "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2018_39/2582131/180928-differing-personality-mc-1541.JPG",
         },
         {
             title: "Burnout",
-            link: "#",
+            link: "/pages/TestBurnOut",
             imageSrc: "https://res.cloudinary.com/dk0z4ums3/image/upload/v1607354601/attached_image/ciri-ciri-burnout-dan-cara-mengatasinya.jpg",
         },
     ];
