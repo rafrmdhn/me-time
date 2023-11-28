@@ -5,7 +5,7 @@ const Service = () => {
     const cardData = [
         {
             title: "Depresi",
-            link: "#",
+            link: "/pages/TestDepresi",
             imageSrc: "https://d3uhejzrzvtlac.cloudfront.net/compro/articleContent/703d5bda-019c-4500-a2f4-d6d6e46aff92.jpg",
         },
         {
