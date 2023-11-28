@@ -15,6 +15,10 @@ import TestBurnOut from './pages/TestBurnOut';
 
 import ContactUs from './pages/ContactUs';
 
+// CREDENTIALS
+import Login from './pages/Login';
+import Register from './pages/Register';
+
 function App() {
   return (
     <div className="App bg-stone-200">
@@ -32,6 +36,11 @@ function App() {
           <Route path="/pages/TestBurnOut" element={<TestBurnOut />} />
 
           <Route path="/pages/ContactUs" element={<ContactUs />} />
+
+
+          <Route path="/admin-login" element={<Login />} />
+          <Route path="/admin-register" element={<Register />} />
+
         </Routes>
       </Router>
     </div>
