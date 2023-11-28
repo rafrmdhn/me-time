@@ -9,7 +9,7 @@ import Subscription from '../components/subscription'
 
 const CekKesehatanMental = () => {
     return (
-       <div>
+       <div className="bg-[#F6F4EB]">
             <Header
                 title = "Detail Layanan"
                 description="Dengan fokus pada kebutuhan individu, kami menyediakan solusi yang disesuaikan untuk memenuhi harapan Anda. Dari konsultasi mendalam hingga pendekatan praktis, setiap detail dirancang dengan cermat untuk memastikan kepuasan pelanggan. Temukan keunggulan dalam layanan kami yang membawa dampak positif dan memberikan solusi terbaik bagi Anda."

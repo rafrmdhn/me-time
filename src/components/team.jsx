@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import Rafi from '../assets/member/rafi2.jpg';
 
 const Team = () => {
     return (
@@ -18,7 +19,7 @@ const Team = () => {
                     </div>
 
                     <div>
-                        <img class="w-full rounded-3xl w-80 h-128 mx-auto" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/6/team-member-2.jpg" alt="" />
+                        <img class="w-full rounded-3xl w-80 h-128 mx-auto" src={Rafi} alt="" />
                     </div>
 
                     <div>
@@ -27,7 +28,7 @@ const Team = () => {
                 </div>
 
                 <div class="mt-8 text-center md:mt-16">
-                    <Link to="#" title="" class="inline-flex items-center justify-center py-2 font-semibold text-white transition-all duration-200 bg-violet-600 border border-transparent rounded-3xl px-14 hover:bg-violet-700 focus:bg-violet-700" role="button">See Detail</Link>
+                    <Link to="/TimKami" title="" class="inline-flex items-center justify-center py-2 font-semibold text-white transition-all duration-200 bg-violet-600 border border-transparent rounded-3xl px-14 hover:bg-violet-700 focus:bg-violet-700" role="button">See Detail</Link>
                 </div>
             </div>
         </section>

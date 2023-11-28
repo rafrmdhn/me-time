@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 const Service = () => {
@@ -46,10 +47,10 @@ const Service = () => {
                     Tes kesehatan mental adalah proses evaluasi yang dilakukan untuk menilai kondisi kesehatan mental seseorang. Tujuan dari tes ini adalah untuk mengidentifikasi gangguan mental, mengevaluasi tingkat stres, dan membantu individu dalam memahami dan mengelola kesehatan mental mereka. Tes kesehatan mental dapat dilakukan oleh profesional kesehatan mental, seperti psikolog, psikiater, atau konselor.
                 </p>
             </div>
-            <h2 className="md:text-3xl text-3xl font-semibold mb-8 ">Metode Tes Kesehatan Mental</h2>
+            <h2 className="md:text-4xl text-4xl font-semibold mb-8 ">Metode Tes Kesehatan Mental</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:gridcols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8">
                 {cardData.map((card, index) => (
-                    <a key={index} href={card.link} className="relative flex flex-col text-gray-700 bg-stone-100 shadow-md rounded-xl bg-clip-border mt-10">
+                    <Link key={index} to={card.link} className="relative flex flex-col text-gray-700 bg-stone-100 shadow-md rounded-xl bg-clip-border mt-10">
                         <div className="p-6 text-center">
                             <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                                 {card.title}
@@ -58,7 +59,7 @@ const Service = () => {
                         <div className="relative mx-4 overflow-hidden text-gray-700 bg-white shadow-lg rounded-xl bg-clip-border mb-4">
                             <img src={card.imageSrc} alt={`${card.title} profile`} className="w-full h-80 object-cover" />
                         </div>
-                    </a>
+                    </Link>
                 ))}
             </div>
         </section>
