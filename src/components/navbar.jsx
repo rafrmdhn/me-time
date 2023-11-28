@@ -7,7 +7,6 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isPagesDropdownOpen, setIsPagesDropdownOpen] = useState(false);
-    const pagesDropdownRef = useRef(null);
     const dropdownRef = useRef(null);
     const location = useLocation();
     const isHomePage = location.pathname === "/Home" || location.pathname === "/home";;
