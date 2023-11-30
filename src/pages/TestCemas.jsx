@@ -89,7 +89,7 @@ const TestCemas = () => {
               },
         ];
       
-        const [answers, setAnswers] = useState(Array(quizQuestions.length).fill(1));
+        const [answers, setAnswers] = useState(Array(quizQuestions.length).fill(0));
         const [showScore, setShowScore] = useState(false);
       
         const handleAnswerChange = (questionIndex, value) => {
@@ -156,7 +156,7 @@ const TestCemas = () => {
 
 
     return (
-        <div>
+        <div className='bg-[#F6F4EB]'>
             <Navbar/>
             <Header
                 title="Deteksi Gangguan Cemas"
@@ -176,4 +176,4 @@ const TestCemas = () => {
     )
 }
 
-export default TestCemas
+export default TestCemas;

@@ -88,7 +88,7 @@ const TestPersonality = () => {
               },
         ];
       
-        const [answers, setAnswers] = useState(Array(quizQuestions.length).fill(1));
+        const [answers, setAnswers] = useState(Array(quizQuestions.length).fill(0));
         const [showScore, setShowScore] = useState(false);
       
         const handleAnswerChange = (questionIndex, value) => {
@@ -154,7 +154,7 @@ const TestPersonality = () => {
     };
 
     return (
-        <div>
+        <div className='bg-[#F6F4EB]'>
             <Navbar/>
             <Header
                 title="Test Personality"
@@ -172,4 +172,4 @@ const TestPersonality = () => {
     )
 }
 
-export default TestPersonality
+export default TestPersonality;

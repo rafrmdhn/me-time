@@ -50,7 +50,7 @@ const FaQ = () => {
                 onClick={() => toggleAccordion(index)}
                 className="flex items-center justify-between w-full px-4 py-5 sm:p-6"
               >
-                <span className="px-4 flex text-lg font-semibold text-black">{faq.question}</span>
+                <span className="px-4 flex text-lg font-semibold text-left text-black">{faq.question}</span>
                 <svg
                   className={`w-6 h-6 text-gray-400 ${activeIndex === index ? "rotate-180" : ""}`}
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +62,8 @@ const FaQ = () => {
                 </svg>
               </button>
 
-              <div className={`px-4 pb-5 sm:px-6 sm:pb-6 ${activeIndex === index ? "" : "hidden"}`}>
-                <p>{faq.answer}</p>
+              <div className={`px-4 pb-5 sm:px-6 sm:pb-6 text-left ${activeIndex === index ? "" : "hidden"}`}>
+                <p >{faq.answer}</p>
               </div>
             </div>
           ))}
