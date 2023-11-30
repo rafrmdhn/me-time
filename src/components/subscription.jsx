@@ -18,7 +18,7 @@ const Subscription = () => {
                         <input
                         type="text"
                         placeholder="Your email"
-                        className="text-white w-full rounded-l-full max-w-xl py-2 px-5 shadow-md bg-transparent placeholder-white"
+                        className="text-white w-full rounded-l-full max-w-xl py-2 px-5 shadow-md border-transparent bg-transparent placeholder-white"
                         />
                         <button className="bg-gradient-to-r from-[#91C8E4] to-[#4682A9] text-white py-2 px-10 rounded-r-full shadow-md ">Berlangganan</button>
                     </div>

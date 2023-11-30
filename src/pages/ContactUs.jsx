@@ -7,7 +7,7 @@ import Footer from '../components/footer';
 
 const ContactUs = () => {
     return (
-        <div className=''>
+        <div className="bg-[#F6F4EB]">
             <Navbar />
             <Header
                 title='Contact Us'

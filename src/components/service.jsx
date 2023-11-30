@@ -6,32 +6,32 @@ const Service = () => {
     const cardData = [
         {
             title: "Depresi",
-            link: "#",
+            link: "/TestDepresi",
             imageSrc: "https://d3uhejzrzvtlac.cloudfront.net/compro/articleContent/703d5bda-019c-4500-a2f4-d6d6e46aff92.jpg",
         },
         {
             title: "Stress",
-            link: "#",
+            link: "/TestStress",
             imageSrc: "https://siplawfirm.id/wp-content/uploads/2022/12/stress.webp",
         },
         {
             title: "Suicide",
-            link: "#",
+            link: "/TestSuicide",
             imageSrc: "https://articles-1mg.gumlet.io/articles/wp-content/uploads/2019/10/prevent-suicide.png?compress=true&quality=80&w=640&dpr=2.6",
         },
         {
             title: "Cemas",
-            link: "#",
+            link: "/TestCemas",
             imageSrc: "https://cdn.hellosehat.com/wp-content/uploads/2017/11/4-Penyakit-yang-Ditandai-Cemas-Berlebihan-Selain-Gangguan-Kecemasan.jpg?w=1200&q=75",
         },
         {
             title: "Personality",
-            link: "#",
+            link: "/TestPersonality",
             imageSrc: "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2018_39/2582131/180928-differing-personality-mc-1541.JPG",
         },
         {
             title: "Burnout",
-            link: "#",
+            link: "/TestBurnOut",
             imageSrc: "https://res.cloudinary.com/dk0z4ums3/image/upload/v1607354601/attached_image/ciri-ciri-burnout-dan-cara-mengatasinya.jpg",
         },
     ];
@@ -42,8 +42,8 @@ const Service = () => {
                 <img className="rounded-3xl" src="https://o-cdn-cas.sirclocdn.com/parenting/images/tes-kesehatan-mental.width-800.format-webp.webp" width="1800"/>
             </div>
             <div className="justify-between items-center md:flex mb-20 text-left">
-                <h6 className="text-5xl mx-20 font-bold">Tes Kesehatan Mental</h6>
-                <p className="text-black text-lg font-normal mx-20 md:my-0">
+                <h6 className="text-5xl mx-10 sm:mx-20 md:mx-20 font-bold">Tes Kesehatan Mental</h6>
+                <p className="text-black text-lg font-normal mx-10 sm:mx-20 md:mx-5 md:my-0">
                     Tes kesehatan mental adalah proses evaluasi yang dilakukan untuk menilai kondisi kesehatan mental seseorang. Tujuan dari tes ini adalah untuk mengidentifikasi gangguan mental, mengevaluasi tingkat stres, dan membantu individu dalam memahami dan mengelola kesehatan mental mereka. Tes kesehatan mental dapat dilakukan oleh profesional kesehatan mental, seperti psikolog, psikiater, atau konselor.
                 </p>
             </div>

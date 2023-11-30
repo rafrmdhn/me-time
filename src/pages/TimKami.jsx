@@ -9,7 +9,7 @@ import Footer from "../components/footer";
 
 const TimKami = () => {
     return (
-        <div className="">
+        <div className="bg-[#F6F4EB]">
             <Header
                 title = "Tim Kami"
                 description="Bertemu dengan Tim Profesional Kami yang Berdedikasi. 

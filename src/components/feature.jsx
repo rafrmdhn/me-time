@@ -15,7 +15,7 @@ const Feature = () => {
                     <p class="mb-3 text-sm mx-20 md:mx-5">
                     Dapatkan dukungan langsung dari konsultan kesehatan jiwa berlisensi
                     melalui sesi konseling online</p>
-                    <Link to="#"
+                    <Link to="/MentalKonseling"
                         className="mx-20 text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">
                         See Detail
                     </Link>
@@ -37,7 +37,7 @@ const Feature = () => {
                     <h1 className="text-center font-semibold text-2xl mb-3">Meditasi</h1>
                     <p class="mb-3 text-sm mx-20 md:mx-5">
                     Temukan ketenangan dan keseimbangan melalui beragam meditasi panduan.</p>
-                    <Link to="#"
+                    <Link to="/Meditasi"
                         className="mx-20 text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">
                         See Detail
                     </Link>
