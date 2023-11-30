@@ -8,7 +8,7 @@ const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
     const location = useLocation();
-    const isHomePage = location.pathname === "/pages/Home";
+    const isHomePage = location.pathname === "/Home" || location.pathname === "/home" || location.pathname === "/";
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -69,12 +69,12 @@ const Navbar = () => {
     return (
         <nav className={`fixed w-full z-20 top-0 start-0 ${isMenuOpen || isScrolled ? 'navbar-scrolled' : 'navbar-transparent'}`}>
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <Link to="/pages/Home" className="flex items-center space-x-3 rtl:space-x-reverse">
+                    <Link to="/Home" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo"/>
                         <span className={`self-center text-2xl font-semibold whitespace-nowrap ${isScrolled || isHomePage ? 'text-black' : 'text-white'}`}>MeTime</span>
                     </Link>
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                        <button type="button" className="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">Contact Us</button>
+                        <Link to="/Login" type="button" className="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">Sign In</Link>
                         <button
                         id="navbar-button"
                         type="button"
@@ -104,10 +104,10 @@ const Navbar = () => {
                     <div ref={dropdownRef} className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isMenuOpen ? 'block' : 'hidden'} mobile-menu`} id="navbar-sticky">
                         <ul className={`flex flex-col p-4 md:p-0 mt-4 font-medium border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 rounded-lg ${isScrolled || isHomePage ? 'text-black' : 'text-white'}`}>
                         <li>
-                            <Link to="/pages/Home" className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Home</Link>
+                            <Link to="/Home" className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Home</Link>
                         </li>
                         <li>
-                            <Link to="#" className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>About</Link>
+                            <Link to="/TentangKami" className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>About</Link>
                         </li>
                         <li className="relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                             <a onClick={handleDropdownToggle} className={`flex justify-center item-center block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Services
@@ -120,13 +120,13 @@ const Navbar = () => {
                                 <div className="z-10 absolute bg-white divide-y divide-white rounded-lg shadow w-44 dark:bg-white">
                                     <ul className="py-2 text-sm text-gray-700 dark:text-gray-200 justify-content">
                                         <li>
-                                            <Link to="#" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Mental Konseling</Link>
+                                            <Link to="/MentalKonseling" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Mental Konseling</Link>
                                         </li>
                                         <li>
-                                            <Link to="/pages/CekKesehatan" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Cek Kesehatan Mental</Link>
+                                            <Link to="/CekKesehatan" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Cek Kesehatan Mental</Link>
                                         </li>
                                         <li>
-                                            <Link to="#" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Meditasi</Link>
+                                            <Link to="/Meditasi" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Meditasi</Link>
                                         </li>
                                         <li>
                                             <Link to="#" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Forum Diskusi</Link>
@@ -136,7 +136,7 @@ const Navbar = () => {
                             )}
                         </li>
                         <li>
-                            <Link to="#" className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Contact</Link>
+                            <Link to="/ContactUs" className={`flex justify-center item-center block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Contact Us</Link>
                         </li>
                         </ul>
                     </div>

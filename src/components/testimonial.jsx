@@ -87,7 +87,6 @@ const Testimonial = () => {
           </div>
         ))}
       </Slider>
-      <div className="mb-20"></div>
     </section>
   );
 };

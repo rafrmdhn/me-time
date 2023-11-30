@@ -49,7 +49,7 @@ const TestStres = () => {
               },
         ];
       
-        const [answers, setAnswers] = useState(Array(quizQuestions.length).fill(1));
+        const [answers, setAnswers] = useState(Array(quizQuestions.length).fill(0));
         const [showScore, setShowScore] = useState(false);
       
         const handleAnswerChange = (questionIndex, value) => {
@@ -116,7 +116,7 @@ const TestStres = () => {
     };
 
     return (
-        <div>
+        <div className="bg-[#F6F4EB]">
             <Navbar />
             <Header
                 title="Test Level Stress"
@@ -136,4 +136,4 @@ const TestStres = () => {
     )
 }
 
-export default TestStres
+export default TestStres;

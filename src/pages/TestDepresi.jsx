@@ -70,7 +70,7 @@ const TestDepresi = () => {
           },
         ];
       
-        const [answers, setAnswers] = useState(Array(quizQuestions.length).fill(1));
+        const [answers, setAnswers] = useState(Array(quizQuestions.length).fill(0));
         const [showScore, setShowScore] = useState(false);
       
         const handleAnswerChange = (questionIndex, value) => {
@@ -139,7 +139,7 @@ const TestDepresi = () => {
 
 
     return (
-        <div className='bg-white'>
+        <div className='bg-[#F6F4EB]'>
             <Navbar/>
             <Header
                 title="Test Level Depresi"
@@ -160,4 +160,4 @@ const TestDepresi = () => {
     )
 }
 
-export default TestDepresi
+export default TestDepresi;

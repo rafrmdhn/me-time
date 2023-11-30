@@ -1,10 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ReactDOM.render(
+  <Router>
+    <Switch>
+      <Route path="/" component={App} />
+      <Redirect from="/" to="/Home" />
+    </Switch>
+  </Router>,
+  document.getElementById('root')
 );

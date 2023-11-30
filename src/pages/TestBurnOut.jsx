@@ -90,7 +90,7 @@ const TestBurnOut = () => {
               },
         ];
       
-        const [answers, setAnswers] = useState(Array(quizQuestions.length).fill(1));
+        const [answers, setAnswers] = useState(Array(quizQuestions.length).fill(0));
         const [showScore, setShowScore] = useState(false);
       
         const handleAnswerChange = (questionIndex, value) => {
@@ -156,7 +156,7 @@ const TestBurnOut = () => {
     };
 
     return (
-        <div>
+        <div className='bg-[#F6F4EB]'>
             <Navbar/>
             <Header
                 title="Test Burn Out"
@@ -180,4 +180,4 @@ const TestBurnOut = () => {
     )
 }
 
-export default TestBurnOut
+export default TestBurnOut;
