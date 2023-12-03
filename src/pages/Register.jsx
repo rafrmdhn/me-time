@@ -25,7 +25,7 @@ const Register = () => {
                             </div>
                             <div>
                                 <label for="confirm-password" className="block mb-2 text-sm font-medium text-black">Confirm password</label>
-                                <input type="confirm-password" name="confirm-password" id="confirm-password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-3xl focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5" required=""/>
+                                <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-3xl focus:ring-violet-600 focus:border-violet-600 block w-full p-2.5" required=""/>
                             </div>
                             <div className="flex items-start">
                                 <div className="flex items-center h-5">
