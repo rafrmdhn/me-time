@@ -15,13 +15,13 @@ const Testimonial = () => {
       rating: 5,
     },
     {
-        id: 2,
-        name: "Windah Basudara",
-        role: "Youtuber",
-        image : "https://yt3.googleusercontent.com/ZqDuYMGIahUkyQ_NadOV_oy8OrxFpBI3YHpJOQYHoUmXeJT-66aPW-UB7H_q6fjcNhkBQqZc=s176-c-k-c0x00ffffff-no-rj",
-        content:
-            "Saya sangat terkesan dengan layanan konsultasi kesehatan mental di website ini. Konselor yang terampil dan empatik membantu saya mengatasi tantangan kesehatan mental saya. Terima kasih atas bantuan yang sangat berarti!",
-        rating: 5,
+      id: 2,
+      name: "Windah Basudara",
+      role: "Youtuber",
+      image : "https://yt3.googleusercontent.com/ZqDuYMGIahUkyQ_NadOV_oy8OrxFpBI3YHpJOQYHoUmXeJT-66aPW-UB7H_q6fjcNhkBQqZc=s176-c-k-c0x00ffffff-no-rj",
+      content:
+        "Saya sangat terkesan dengan layanan konsultasi kesehatan mental di website ini. Konselor yang terampil dan empatik membantu saya mengatasi tantangan kesehatan mental saya. Terima kasih atas bantuan yang sangat berarti!",
+      rating: 5,
     },
     {
       id: 3,

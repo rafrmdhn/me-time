@@ -1,148 +1,43 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
-import '../App.css';
+import React from "react";
+import PsychiatristAssets from '../assets/img/psychiatristassets.png';
 
-const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const dropdownRef = useRef(null);
-    const location = useLocation();
-    const isHomePage = location.pathname === "/Home" || location.pathname === "/home" || location.pathname === "/";
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    const handleDropdownToggle = () => {
-        setIsDropdownOpen(!isDropdownOpen);
-    };
-
-    const handleDocumentClick = (e) => {
-        const navbarButton = document.getElementById("navbar-button");
-
-        if (
-            navbarButton &&
-            !navbarButton.contains(e.target) &&
-            dropdownRef.current &&
-            !dropdownRef.current.contains(e.target)
-        ) {
-            setIsDropdownOpen(false);
-            setIsMenuOpen(false);
-        }
-
-        if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-            setIsDropdownOpen(false);
-        }
-    };
-
-    const handleDropdownMouseEnter = () => {
-        setIsDropdownOpen(true);
-    };
-
-    const handleDropdownMouseLeave = () => {
-        setIsDropdownOpen(false);
-    };
-    
-    const handleScroll = () => {
-        setIsScrolled(window.scrollY > 0);
-    };
-
-    const handleResize = () => {
-        if (window.innerWidth > 768 && isMenuOpen) {
-            setIsMenuOpen(false);
-        }
-    };
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        window.addEventListener("resize", handleResize);
-        document.addEventListener("click", handleDocumentClick);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("resize", handleResize);
-            document.removeEventListener("click", handleDocumentClick);
-        };
-    }, [isMenuOpen]);
-
+const Psychiatrist = () => {
     return (
-        <nav className={`fixed w-full z-20 top-0 start-0 ${isMenuOpen || isScrolled ? 'navbar-scrolled' : 'navbar-transparent'}`}>
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <Link to="/Home" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo"/>
-                        <span className={`self-center text-2xl font-semibold whitespace-nowrap ${isScrolled || isHomePage ? 'text-black' : 'text-white'}`}>MeTime</span>
-                    </Link>
-                    <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                        <Link to="/Login" type="button" className="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">Sign In</Link>
-                        <button
-                        id="navbar-button"
-                        type="button"
-                        onClick={toggleMenu}
-                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="navbar-sticky"
-                        aria-expanded="false"
-                    >
-                        <span className="sr-only">Open main menu</span>
-                        <svg
-                        className="w-5 h-5"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 17 14"
-                        >
-                        <path
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M1 1h15M1 7h15M1 13h15"
-                        />
-                        </svg>
-                    </button>
-                    </div>
-                    <div ref={dropdownRef} className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isMenuOpen ? 'block' : 'hidden'} mobile-menu`} id="navbar-sticky">
-                        <ul className={`flex flex-col p-4 md:p-0 mt-4 font-medium border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 rounded-lg ${isScrolled || isHomePage ? 'text-black' : 'text-white'}`}>
-                        <li>
-                            <Link to="/Home" className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/TentangKami" className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>About</Link>
-                        </li>
-                        <li className="relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
-                            <a onClick={handleDropdownToggle} className={`flex justify-center item-center block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Services
-                            <svg className={`mt-2 w-2.5 h-2.5 ms-2.5 transform ${
-                                isDropdownOpen ? "rotate-180" : "rotate-0"
-                                }`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                            </svg></a>
-                            {isDropdownOpen && (
-                                <div className="z-10 absolute bg-white divide-y divide-white rounded-lg shadow w-44 dark:bg-white">
-                                    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200 justify-content">
-                                        <li>
-                                            <Link to="/MentalKonseling" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Mental Konseling</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/CekKesehatan" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Cek Kesehatan Mental</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="/Meditasi" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Meditasi</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="#" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Forum Diskusi</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            )}
-                        </li>
-                        <li>
-                            <Link to="/ContactUs" className={`flex justify-center item-center block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Contact Us</Link>
-                        </li>
-                        </ul>
+        <section className="py-10 dark:bg-[#F6F4EB]">
+            <div className="w-full bg-gradient-to-r from-[#91C8E4] to-[#4682A9] p-8 sm:p-0 mt-28">
+                <div className="container flex flex-col md:flex-row justify-around">
+                    <img src={PsychiatristAssets} alt="Psikiater" className="-mt-24 h-[500px]"/>
+                    <div className="mt-8 sm:mt-0">
+                        <h2 className="text-white text-sm text-center md:text-left">Mentor</h2>
+                        <h1 className="text-white text-4xl font-medium text-center md:text-left mb-3">Memperkenalkan <br/> Konsultasi Berpengalaman</h1>
+                        <div className="flex flex-col md:flex-row text-center md:text-left items-center gap-7 mt-4">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 84 84" fill="none">
+                                    <path d="M68.251 34.125C71.0347 34.1215 73.7034 33.0142 75.6718 31.0458C77.6401 29.0774 78.7475 26.4087 78.751 23.625V15.75H70.876C68.1883 15.754 65.6057 16.7938 63.6651 18.6532C62.3052 16.1858 60.3088 14.128 57.8837 12.6941C55.4585 11.2601 52.6933 10.5025 49.876 10.5H42.001V18.375C42.0058 22.5507 43.6668 26.5539 46.6194 29.5066C49.5721 32.4592 53.5753 34.1201 57.751 34.125H60.376V68.25H28.876V55.125H31.501C34.2847 55.1215 36.9534 54.0142 38.9218 52.0458C40.8901 50.0774 41.9975 47.4087 42.001 44.625V36.75H34.126C31.4383 36.754 28.8557 37.7938 26.9151 39.6532C25.5552 37.1858 23.5588 35.128 21.1337 33.6941C18.7085 32.2601 15.9433 31.5025 13.126 31.5H5.25098V39.375C5.25584 43.5507 6.91677 47.5539 9.86942 50.5066C12.8221 53.4592 16.8253 55.1201 21.001 55.125H23.626V68.25H5.25098V73.5H78.751V68.25H65.626V34.125H68.251ZM65.626 26.25C65.6274 24.858 66.1809 23.5235 67.1652 22.5392C68.1495 21.555 69.484 21.0014 70.876 21H73.501V23.625C73.4996 25.017 72.946 26.3515 71.9618 27.3358C70.9775 28.32 69.6429 28.8736 68.251 28.875H65.626V26.25ZM28.876 47.25C28.8774 45.858 29.4309 44.5235 30.4152 43.5392C31.3995 42.555 32.734 42.0014 34.126 42H36.751V44.625C36.7496 46.017 36.196 47.3515 35.2118 48.3358C34.2275 49.32 32.8929 49.8736 31.501 49.875H28.876V47.25ZM23.626 49.875H21.001C18.2173 49.8715 15.5486 48.7642 13.5802 46.7958C11.6118 44.8274 10.5044 42.1587 10.501 39.375V36.75H13.126C15.9097 36.7535 18.5784 37.8608 20.5468 39.8292C22.5151 41.7976 23.6225 44.4663 23.626 47.25V49.875ZM60.376 28.875H57.751C54.9673 28.8715 52.2986 27.7642 50.3302 25.7958C48.3618 23.8274 47.2544 21.1587 47.251 18.375V15.75H49.876C52.6597 15.7535 55.3284 16.8608 57.2968 18.8292C59.2651 20.7976 60.3725 23.4663 60.376 26.25V28.875Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h1 class="text-white font-semibold mb-2">Pertumbuhan Profesional</h1>
+                                <p class="text-white text-xs text-center md:text-justify">"Kesehatan mental adalah fondasi untuk <br />pertumbuhan profesional. Tanpa kesehatan <br />mental yang baik, sulit untuk berkembang <br />dalam karir anda."</p>
+                            </div>
+                        </div>
+                        <div className="flex flex-col md:flex-row text-center md:text-left items-center gap-7 mt-4">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 84 84" fill="none">
+                                    <path d="M42.001 56C45.4426 56 49.162 55.4027 53.159 54.208C57.1536 53.011 62.6801 50.8667 69.7385 47.775C69.8551 47.1333 69.9286 46.5068 69.959 45.8955C69.987 45.2818 70.001 44.6542 70.001 44.0125C70.001 43.3708 69.7536 42.8458 69.259 42.4375C68.762 42.0292 68.1926 41.9125 67.551 42.0875C66.7343 42.3792 65.8301 42.6848 64.8385 43.0045C63.8468 43.3265 62.5926 43.8083 61.076 44.45C57.051 46.1417 53.6093 47.3223 50.751 47.992C47.8926 48.664 44.976 49 42.001 49C38.9676 49 35.9926 48.65 33.076 47.95C30.1593 47.25 26.601 46.0542 22.401 44.3625C20.8843 43.7208 19.7176 43.2542 18.901 42.9625L16.451 42.0875C15.8093 41.8542 15.2411 41.9557 14.7465 42.392C14.2495 42.8307 14.001 43.3708 14.001 44.0125C14.001 44.6542 14.0161 45.2818 14.0465 45.8955C14.0745 46.5068 14.1468 47.1333 14.2635 47.775C20.1551 50.575 25.39 52.6458 29.968 53.9875C34.5483 55.3292 38.5593 56 42.001 56ZM42.001 70C47.4843 70 52.3551 68.8042 56.6135 66.4125C60.8718 64.0208 64.1968 60.8125 66.5885 56.7875C61.4551 58.9458 56.9343 60.5208 53.026 61.5125C49.1176 62.5042 45.4426 63 42.001 63C38.6176 63 34.8551 62.489 30.7135 61.467C26.5718 60.4473 22.1093 58.9167 17.326 56.875C19.6593 60.9 22.9691 64.0943 27.2555 66.458C31.5441 68.8193 36.4593 70 42.001 70ZM42.001 35C38.151 35 34.8551 33.6292 32.1135 30.8875C29.3718 28.1458 28.001 24.85 28.001 21C28.001 17.15 29.3718 13.8542 32.1135 11.1125C34.8551 8.37083 38.151 7 42.001 7C45.851 7 49.1468 8.37083 51.8885 11.1125C54.6301 13.8542 56.001 17.15 56.001 21C56.001 24.85 54.6301 28.1458 51.8885 30.8875C49.1468 33.6292 45.851 35 42.001 35ZM42.001 28C43.926 28 45.5745 27.314 46.9465 25.942C48.3161 24.5723 49.001 22.925 49.001 21C49.001 19.075 48.3161 17.4277 46.9465 16.058C45.5745 14.686 43.926 14 42.001 14C40.076 14 38.4286 14.686 37.059 16.058C35.687 17.4277 35.001 19.075 35.001 21C35.001 22.925 35.687 24.5723 37.059 25.942C38.4286 27.314 40.076 28 42.001 28ZM42.001 77C31.676 77 23.2608 73.9375 16.7555 67.8125C10.2525 61.6875 7.00098 53.7542 7.00098 44.0125C7.00098 40.9792 8.21198 38.5583 10.634 36.75C13.0536 34.9417 15.6926 34.5042 18.551 35.4375C19.4843 35.7292 20.462 36.064 21.484 36.442C22.5036 36.8223 23.7135 37.3042 25.1135 37.8875C28.8468 39.4042 31.9385 40.4693 34.3885 41.083C36.8385 41.6943 39.376 42 42.001 42C44.5093 42 46.9885 41.7083 49.4385 41.125C51.8885 40.5417 54.8926 39.4917 58.451 37.975C60.1426 37.3333 61.4995 36.8083 62.5215 36.4C63.5411 35.9917 64.5468 35.6417 65.5385 35.35C68.3968 34.5333 71.0218 35.0292 73.4135 36.8375C75.8051 38.6458 77.001 41.0375 77.001 44.0125C77.001 48.6208 76.0968 52.9223 74.2885 56.917C72.4801 60.914 70.001 64.4 66.851 67.375C63.701 70.35 59.9968 72.6973 55.7385 74.417C51.4801 76.139 46.901 77 42.001 77Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h1 class="text-white font-semibold mb-2">Pertumbuhan Profesional</h1>
+                                <p class="text-white text-xs text-center md:text-justify">"Kesehatan mental adalah fondasi untuk <br />pertumbuhan profesional. Tanpa kesehatan <br />mental yang baik, sulit untuk berkembang <br />dalam karir anda."</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </nav>
+                
+            </div>
+        </section>
     );
 };
 
-export default Navbar;
+export default Psychiatrist;

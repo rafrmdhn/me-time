@@ -107,7 +107,7 @@ const Footer = () => {
                     </a>
                     </div>
                 <div className="sm:flex mt-4 justify-center">
-                    <span className="text-sm text-white sm:text-center dark:text-white">© 2023 <a href="https://flowbite.com/" className="hover:underline">MeTime™</a>. All Rights Reserved.
+                    <span className="text-sm text-white sm:text-center dark:text-white">© 2023 MeTime™. All Rights Reserved.
                     </span>
                 </div>
             </div>
