@@ -71,7 +71,7 @@ const FaQ = () => {
 
         <p className="text-center text-gray-600 textbase mt-9">
             Tidak menemukan jawaban yang Anda cari?{" "}
-          <Link to="#" title="" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">
+          <Link to="/ContactUs" title="" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">
             Hubungi Kami
           </Link>
         </p>
