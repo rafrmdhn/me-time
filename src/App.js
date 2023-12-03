@@ -18,6 +18,7 @@ import TestBurnOut from './pages/TestBurnOut';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
+import UserProfile from './pages/UserProfile';
 
 import DashboardPage from './pages/admin/DashboardPage';
 import InboxPage from './pages/admin/InboxPage';
@@ -63,6 +64,7 @@ function App() {
 
           <Route path="/Login" component={Login}/>
           <Route path="/Register" component={Register}/>
+          <Route path="/Profile" component={UserProfile}/>
 
           <Route path="/admin/Dashboard" component={DashboardPage}/>
           <Route path="/admin/Inbox" component={InboxPage}/>

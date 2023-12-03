@@ -79,13 +79,13 @@ const Dashboard = () => {
                             <thead>
                                 <tr>
                                     <th class="border-b border-blue-gray-50 py-3 px-6 text-left">
-                                        <p class="block antialiased font-sans text-[11px] font-medium uppercase text-blue-gray-400">companies</p>
+                                        <p class="block antialiased font-sans text-[11px] font-medium uppercase text-blue-gray-400">jenis tes</p>
+                                    </th>
+                                    <th class="border-b border-blue-gray-50 py-3 px-6 text-center">
+                                        <p class="block antialiased font-sans text-[11px] font-medium uppercase text-blue-gray-400">total</p>
                                     </th>
                                     <th class="border-b border-blue-gray-50 py-3 px-6 text-left">
-                                        <p class="block antialiased font-sans text-[11px] font-medium uppercase text-blue-gray-400">budget</p>
-                                    </th>
-                                    <th class="border-b border-blue-gray-50 py-3 px-6 text-left">
-                                        <p class="block antialiased font-sans text-[11px] font-medium uppercase text-blue-gray-400">completion</p>
+                                        <p class="block antialiased font-sans text-[11px] font-medium uppercase text-blue-gray-400">rata-rata</p>
                                     </th>
                                 </tr>
                             </thead>
