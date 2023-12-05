@@ -1,52 +1,60 @@
 import React, { useState, useEffect } from "react";
-
-const userData = [
-    {
-        id: 1,
-        namadepan: "Rafi",
-        namabelakang: "Ramadhan",
-        email: "ramadhanrafi871@gmail.com",
-        pesan: "Saya merasa sehatwalafiat.",
-        timeAgo: "23m ago",
-        image: "",
-    },
-    {
-        id: 2,
-        namadepan: "Akhil",
-        namabelakang: "Gautam",
-        email: "akhil.gautam123@gmail.com",
-        pesan: "Saya merasa diri selalu mengalami depresi jika menerima masalah.",
-        timeAgo: "23m ago",
-        image: "https://bit.ly/2KfKgdy",
-    },
-];
+import axios from "axios";
+import { formatDistanceToNow, parseISO } from 'date-fns';
+import { id } from 'date-fns/locale';
 
 const Inbox = () => {
     const [activeMessage, setActiveMessage] = useState(null);
     const [replyText, setReplyText] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
-    const [filteredMessages, setFilteredMessages] = useState(userData);
+    const [filteredMessages, setFilteredMessages] = useState([]);
+    const [userData, setUserData] = useState([]);
 
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get("http://195.35.8.190:4000/api/messages");
+            const { data } = response.data;
+            const formattedData = data.map((item) => ({
+                ...item,
+                timeAgo: formatDistanceToNow(parseISO(item.createdAt), { addSuffix: true, locale: id }),
+              }));
+      
+              setUserData(formattedData);
+          } catch (error) {
+            console.log(error);
+          }
+        };
+    
+        fetchData();
+    }, []);
+    
     const handleItemClick = (data) => {
         setActiveMessage(data);
     };
-
+    
     const handleReplyChange = (event) => {
         setReplyText(event.target.value);
     };
-
+    
     const handleReplySubmit = () => {
         console.log("Reply submitted:", replyText);
         setReplyText("");
     };
 
     useEffect(() => {
-        const filtered = userData.filter((data) =>
-            data.namadepan.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            data.namabelakang.toLowerCase().includes(searchQuery.toLowerCase())
-        );
+        const filtered =
+          searchQuery !== ""
+            ? userData.filter(
+                (data) =>
+                  data.name.toLowerCase().includes(searchQuery.toLowerCase()) 
+                //   ||
+                //   data.namabelakang.toLowerCase().includes(searchQuery.toLowerCase())
+              )
+            : userData;
+    
         setFilteredMessages(filtered);
-    }, [searchQuery]);
+    }, [searchQuery, userData]);
 
     return (
         <main class="flex w-full h-full shadow-lg">
@@ -70,8 +78,7 @@ const Inbox = () => {
                                 className="flex justify-between items-center"
                                 onClick={() => handleItemClick(data)}
                             >
-                                <h3 className="text-lg font-semibold">{data.namadepan} {data.namabelakang}</h3>
-                                <p className="text-md text-gray-400">{data.timeAgo}</p>
+                                <h3 className="text-lg font-semibold">{data.name}</h3>
                             </a>
                         </li>
                     ))}
@@ -86,12 +93,13 @@ const Inbox = () => {
                         <img src={activeMessage?.image} loading="lazy" class="h-full w-full object-cover" />
                     </div>
                     <div class="flex flex-col">
-                        <h3 class="font-semibold text-lg text-left">{activeMessage?.namadepan} {activeMessage?.namabelakang}</h3>
+                        <h3 class="font-semibold text-lg text-left">{activeMessage?.name}</h3>
                         <p class="text-light text-gray-400">{activeMessage?.email}</p>
                     </div>
                     </div>
                     <div>
                     <ul class="flex text-gray-400 space-x-4">
+                    <p className="text-md text-gray-400">{activeMessage?.timeAgo}</p>
                         <button>
                             <li class="w-6 h-6">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -121,7 +129,7 @@ const Inbox = () => {
                 </div>
                 <section>
                     <article class="mt-8 text-gray-500 leading-7 tracking-wider">
-                        <p>{activeMessage.pesan}</p>
+                        <p>{activeMessage.message}</p>
                     </article>
                     <div className="mt-6 border rounded-xl bg-gray-50 mb-3">
                         <textarea className="w-full bg-gray-50 p-2 rounded-xl" placeholder="Type your reply here..." rows="3"

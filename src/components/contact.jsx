@@ -32,7 +32,7 @@ const Contact = () => {
                     <form action="">
                         <div className='flex flex-col gap-2 md:flex-row mb-4'>
                             <div className='w-full text-left'>
-                                <label htmlFor="FirstName" className='text-sm'>Nama Depan</label><br />
+                                <label htmlFor="FirstName" className='text-md'>Nama Depan</label><br />
                                 <input
                                     type="text"
                                     name='FirstName'
@@ -41,7 +41,7 @@ const Contact = () => {
                                 />
                             </div>
                             <div className='w-full text-left'>
-                                <label htmlFor="FirstName" className='text-sm'>Nama Belakang</label><br />
+                                <label htmlFor="FirstName" className='text-md'>Nama Belakang</label><br />
                                 <input
                                     type="text"
                                     name='LastName'
@@ -53,7 +53,7 @@ const Contact = () => {
 
                         <div className='flex flex-col gap-2 md:flex-row mb-4'>
                             <div className='w-full text-left'>
-                                <label htmlFor="Email" className='text-sm'>Email</label><br />
+                                <label htmlFor="Email" className='text-md'>Email</label><br />
                                 <input
                                     type="email"
                                     name='Email'
@@ -62,7 +62,7 @@ const Contact = () => {
                                 />
                             </div>
                             <div className='w-full text-left'>
-                                <label htmlFor="Handphone" className='text-sm'>No Handphone</label><br />
+                                <label htmlFor="Handphone" className='text-md'>No Handphone</label><br />
                                 <input
                                     type="number"
                                     name='Handphone'

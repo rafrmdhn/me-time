@@ -1,7 +1,39 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [rememberMe, setRememberMe] = useState(false);
+    const [loginError, setLoginError] = useState(false);
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const handleRememberMeChange = (e) => {
+        setRememberMe(e.target.checked);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Simulate a server-side authentication check
+        // In a real application, this logic would be handled on the server
+        const isValidCredentials = /* Check if the provided credentials are valid */ true;
+
+        if (isValidCredentials) {
+            // Redirect or perform other actions for successful login
+            console.log('Login successful');
+        } else {
+            // Display an error message for unsuccessful login
+            setLoginError(true);
+        }
+    };
     return (
         <section class="bg-[#F6F4EB]">
             <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
@@ -14,15 +46,22 @@ const Login = () => {
                         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-black">
                             Sign in to your account
                         </h1>
-                        <form class="space-y-4 md:space-y-6 text-left" action="#">
+                        <form class="space-y-4 md:space-y-6 text-left" action="#" onSubmit={handleSubmit}>
                             <div>
                                 <label for="email" class="block mb-2 text-sm font-medium text-black">Your email</label>
-                                <input type="email" name="email" id="email" class="bg-gray-50 border-gray-300 text-black sm:text-sm rounded-3xl focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required=""/>
+                                <input type="email" name="email" id="email" value={email}
+                                onChange={handleEmailChange} class="bg-gray-50 border-gray-300 text-black sm:text-sm rounded-3xl focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required=""/>
                             </div>
                             <div>
                                 <label for="password" class="block mb-2 text-sm font-medium text-black">Password</label>
-                                <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-3xl focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required=""/>
+                                <input type="password" name="password" id="password" value={password}
+                                onChange={handlePasswordChange} placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-black sm:text-sm rounded-3xl focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required=""/>
                             </div>
+                            {loginError && (
+                                <p className="text-xs text-red-500 mb-2">
+                                    * Incorrect email or password. Please try again.
+                                </p>
+                            )}
                             <div class="flex items-center justify-between">
                                 <div class="flex items-start">
                                     <div class="flex items-center h-5">

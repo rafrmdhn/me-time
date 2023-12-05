@@ -8,7 +8,7 @@ const Psychiatrist = () => {
                 <div className="container flex flex-col md:flex-row justify-around">
                     <img src={PsychiatristAssets} alt="Psikiater" className="-mt-24 h-[500px]"/>
                     <div className="mt-8 sm:mt-0">
-                        <h2 className="text-white text-sm text-center md:text-left">Mentor</h2>
+                        <h2 className="text-white text-md text-center md:text-left">Mentor</h2>
                         <h1 className="text-white text-4xl font-medium text-center md:text-left mb-3">Memperkenalkan <br/> Konsultasi Berpengalaman</h1>
                         <div className="flex flex-col md:flex-row text-center md:text-left items-center gap-7 mt-4">
                             <div>
