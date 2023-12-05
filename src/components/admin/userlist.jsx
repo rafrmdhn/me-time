@@ -7,7 +7,7 @@ const userData = [
         namabelakang: "Ramadhan",
         email: "ramadhanrafi871@gmail.com",
         pesan: "Saya merasa sehatwalafiat.",
-        timeAgo: "23m ago",
+        createdAt: "23m ago",
         image: "",
         status: 1,
     },
@@ -17,7 +17,7 @@ const userData = [
         namabelakang: "Gautam",
         email: "akhil.gautam123@gmail.com",
         pesan: "Saya merasa diri selalu mengalami depresi jika menerima masalah.",
-        timeAgo: "23m ago",
+        createdAt: "23m ago",
         image: "https://bit.ly/2KfKgdy",
         status: 2,
     },
@@ -62,7 +62,6 @@ const getStatusText = (status) => {
     }
 };
 
-
 const UserList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
@@ -93,7 +92,7 @@ const UserList = () => {
                             <tr class="bg-gradient-to-r from-[#91C8E4] to-[#4682A9] text-left text-xs font-semibold uppercase tracking-widest text-white">
                                 <th class="text-center py-3">ID</th>
                                 <th class="text-center py-3">Full Name</th>
-                                <th class="text-center py-3">User Role</th>
+                                <th class="text-center py-3">Email</th>
                                 <th class="text-center py-3">Created at</th>
                                 <th class="text-center py-3">Status</th>
                             </tr>

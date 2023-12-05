@@ -8,7 +8,7 @@ const Team = () => {
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                 <div className="max-w-3xl mx-auto text-center">
                     <h2 className="text-4xl font-semibold leading-tight text-black sm:text-4xl lg:text-4xl lg:leading-tight">Kenali Tim Pakar Kami</h2>
-                    <p className="max-w-2xl mx-auto mt-4 text-sm text-gray-600">
+                    <p className="max-w-2xl mx-auto mt-4 text-md text-gray-600">
                         Temukan keahlian di balik layanan kami. Tim pakar kami siap memberikan solusi terbaik untuk kebutuhan Anda. Dapatkan pengalaman pelayanan yang unggul dengan para profesional berpengalaman di bidangnya.
                     </p>
                 </div>

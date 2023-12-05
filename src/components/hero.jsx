@@ -11,7 +11,7 @@ const Hero = () => {
                     <h1 className="text-5xl font-bold leadi text-black sm:text-5xl">Temukan <span className="dark:text-violet-700">Ketenangan </span>
                     Dalam Genggaman Anda
                     </h1>
-                    <p className="mt-6 mb-8 text-xs text-black sm:mb-12">Bersama MeTime, Anda dapat menyesuaikan perjalanan kesehatan mental Anda, mengeksplorasi sumber daya yang relevan, dan meraih kebahagiaan sejati.</p>
+                    <p className="mt-6 mb-8 text-md text-black sm:mb-12">Bersama MeTime, Anda dapat menyesuaikan perjalanan kesehatan mental Anda, mengeksplorasi sumber daya yang relevan, dan meraih kebahagiaan sejati.</p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
                         <Link rel="noopener noreferrer" to="#" className="px-8 py-3 text-lg font-semibold rounded bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700  dark:text-white">Get Started</Link>
                     </div>

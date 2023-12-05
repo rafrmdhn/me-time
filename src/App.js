@@ -7,6 +7,8 @@ import TimKami from './pages/TimKami';
 import MentalKonseling from './pages/MentalKonseling';
 import CekKesehatanMental from './pages/CekKesehatan';
 import Meditasi from './pages/Meditasi';
+import ForumDiskusi from './pages/ForumDiskusi';
+import DiscussionsPage from './pages/DiscussionPage';
 import ContactUs from './pages/ContactUs';
 
 import TestDepresi from './pages/TestDepresi';
@@ -53,6 +55,8 @@ function App() {
           <Route path="/MentalKonseling" component={MentalKonseling} />
           <Route path="/CekKesehatan" component={CekKesehatanMental} />
           <Route path="/Meditasi" component={Meditasi}/>
+          <Route path="/ForumDiskusi" component={ForumDiskusi}/>
+          <Route path="/Diskusi/:id" component={DiscussionsPage} />
           <Route path="/ContactUs" component={ContactUs}/>
 
           <Route path="/TestDepresi" component={TestDepresi}/>

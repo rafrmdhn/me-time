@@ -14,13 +14,13 @@ const About = () => {
                                 className="z-40 object-right w-full rounded-md md:h-96 h-68"/>
                         </div>
                         <div className="px-8 mb-10 md:w-1/2 lg:mb-0 text-left">
-                            <p className="mb-2 text-lg font-sm text-black ">
+                            <p className="mb-2 text-md font-sm text-black ">
                                 Tentang Kami
                             </p>
                             <h2 className="pb-2 text-5xl font-semibold md:text-4xl text-black">
                                 Temukan Wajah Dibalik Konsultasi Kesehatan Mental Kami
                             </h2>
-                            <p className="mb-4 mt-10 text-base leading-7 text-black">
+                            <p className="mb-4 mt-10 text-sm leading-7 text-black">
                                 MeTime adalah platform inovatif yang menyatukan terapi mental dan meditasi untuk membantu 
                                 individu mengelola kesehatan mental mereka. Dengan akses mudah, fitur terapeutik, dan dukungan ahli, 
                                 MeTime memberikan solusi terjangkau dan efektif untuk meningkatkan kesejahteraan mental.
