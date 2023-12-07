@@ -6,8 +6,8 @@ import App from './App';
 ReactDOM.render(
   <Router>
     <Switch>
+      <Route exact path="/" render={() => <Redirect to="/Home" />} />
       <Route path="/" component={App} />
-      <Redirect from="/" to="/Home" />
     </Switch>
   </Router>,
   document.getElementById('root')
