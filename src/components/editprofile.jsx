@@ -8,6 +8,7 @@ const EditProfile = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [re_password, setRePassword] = useState('');
+    const [currentPassword, setCurrentPassword] = useState('');
     const [success, setSuccess] = useState('');
     const history = useHistory();
 
@@ -27,6 +28,7 @@ const EditProfile = () => {
             setFirstName(data.firstName);
             setLastName(data.lastName);
             setEmail(data.email);
+            setCurrentPassword(data.password);
             setSuccess('');
         } catch (error) {
             console.log(error);
@@ -38,21 +40,28 @@ const EditProfile = () => {
         try {
             e.preventDefault();
 
-            if (password !== re_password) {
+            if (password === '' && re_password === '') {
+                alert("Please enter at least one password.");
+                return;
+              }
+          
+              if (password !== re_password) {
                 alert("Password doesn't match");
                 return;
-            }
-
-            const response = await axios.patch(`http://195.35.8.190:4000/api/users/${localStorageKey}`, {
+              }
+          
+              const updatedPassword = password ? password : currentPassword;
+          
+              const response = await axios.patch(`http://195.35.8.190:4000/api/users/${localStorageKey}`, {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
-                password: password,
+                password: updatedPassword,
             });
 
             // JIKA RESPONSENYA BERHASIL, ARAHKAN KE PROFILE
             if(response) setSuccess(response.data.msg);
-            setTimeout(() => { history.push(`/Profile/${localStorageKey}`); }, 1000);
+            setTimeout(() => { window.location.reload();}, 1000);
         } catch (error) {
             alert(error.response.data.msg);
         }

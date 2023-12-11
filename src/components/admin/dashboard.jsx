@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 
 const Dashboard = () => {
+    const history = useHistory();
+
+    useEffect(() => {
+        const localStorageKey = localStorage.getItem('AdminKey');
+        if (!localStorageKey) {
+            history.push('/admin/Login');
+        }
+    })
+
     return (
         <div class="mt-12">
             <div class="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
