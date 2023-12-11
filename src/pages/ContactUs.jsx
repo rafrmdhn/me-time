@@ -2,7 +2,7 @@ import React from 'react'
 
 import Navbar from '../components/navbar';
 import Header from '../components/header';
-import Contact from '../components/contact';
+import Contact from '../components/fitur/contact';
 import Footer from '../components/footer';
 
 const ContactUs = () => {

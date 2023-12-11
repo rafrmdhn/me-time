@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Rafi from '../assets/member/rafi2.jpg';
+import Yudha from '../assets/member/yudha.jpg';
+import Azhar from '../assets/member/azhar.jpg';
 
 const Team = () => {
     return (
@@ -15,15 +17,15 @@ const Team = () => {
 
                 <div className="grid grid-cols-1 gap-6 mt-8 sm:grid-cols-3 md:mt-16 lg:gap-x-12">
                     <div>
-                        <img className="w-full rounded-3xl w-80 h-128 mx-auto" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/6/team-member-1.jpg" alt="" />
+                        <img className="w-full rounded-3xl w-80 h-128 mx-auto" src={Yudha} alt="Yudha" />
                     </div>
 
                     <div>
-                        <img className="w-full rounded-3xl w-80 h-128 mx-auto" src={Rafi} alt="" />
+                        <img className="w-full rounded-3xl w-80 h-128 mx-auto" src={Rafi} alt="Rafi" />
                     </div>
 
                     <div>
-                        <img className="w-full rounded-3xl w-80 h-128 mx-auto" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/6/team-member-3.jpg" alt="" />
+                        <img className="w-full rounded-3xl w-80 h-128 mx-auto" src={Azhar} alt="Azhar" />
                     </div>
                 </div>
 
