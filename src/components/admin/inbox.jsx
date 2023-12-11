@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { id } from 'date-fns/locale';
+import axios from "axios";
 
 const Inbox = () => {
     const [activeMessage, setActiveMessage] = useState(null);
@@ -10,22 +10,35 @@ const Inbox = () => {
     const [filteredMessages, setFilteredMessages] = useState([]);
     const [userData, setUserData] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await axios.get("http://195.35.8.190:4000/api/messages");
-            const { data } = response.data;
-            const formattedData = data.map((item) => ({
-                ...item,
-                timeAgo: formatDistanceToNow(parseISO(item.createdAt), { addSuffix: true, locale: id }),
-              }));
-      
+    
+    const fetchData = async () => {
+        try {
+            const messageResponse = await axios.get("http://195.35.8.190:4000/api/messages");
+            const messages = messageResponse.data.data;
+
+            const userResponse = await axios.get("http://195.35.8.190:4000/api/users");
+            const users = userResponse.data.data;
+
+            const formattedData = messages.map((item) => {
+                const user = users.find((u) => u.id === item.userId);
+                return {
+                    id: item.id, 
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    email: user.email,
+                    image: user.image,
+                    createdAt: item.createdAt,
+                    timeAgo: formatDistanceToNow(parseISO(item.createdAt), { addSuffix: true, locale: id }),
+                    message: item.message,
+              }
+            });
               setUserData(formattedData);
           } catch (error) {
             console.log(error);
           }
-        };
-    
+    };
+
+    useEffect(() => {
         fetchData();
     }, []);
     
@@ -47,9 +60,8 @@ const Inbox = () => {
           searchQuery !== ""
             ? userData.filter(
                 (data) =>
-                  data.name.toLowerCase().includes(searchQuery.toLowerCase()) 
-                //   ||
-                //   data.namabelakang.toLowerCase().includes(searchQuery.toLowerCase())
+                    data.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    data.lastName.toLowerCase().includes(searchQuery.toLowerCase())
               )
             : userData;
     
@@ -78,7 +90,7 @@ const Inbox = () => {
                                 className="flex justify-between items-center"
                                 onClick={() => handleItemClick(data)}
                             >
-                                <h3 className="text-lg font-semibold">{data.name}</h3>
+                                <h3 className="text-lg font-semibold">{data.firstName} {data.lastName}</h3>
                             </a>
                         </li>
                     ))}
@@ -93,7 +105,7 @@ const Inbox = () => {
                         <img src={activeMessage?.image} loading="lazy" class="h-full w-full object-cover" />
                     </div>
                     <div class="flex flex-col">
-                        <h3 class="font-semibold text-lg text-left">{activeMessage?.name}</h3>
+                        <h3 class="font-semibold text-lg text-left">{activeMessage?.firstName} {activeMessage?.lastName}</h3>
                         <p class="text-light text-gray-400">{activeMessage?.email}</p>
                     </div>
                     </div>

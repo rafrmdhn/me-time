@@ -4,7 +4,7 @@ import Header from "../components/header";
 import Navbar from "../components/navbar";
 import Member from "../components/member";
 import Subscription from "../components/subscription";
-import Testimonial from "../components/testimonial";
+import Testimonial from "../components/testimoni/testimonial";
 import Footer from "../components/footer";
 
 const TimKami = () => {

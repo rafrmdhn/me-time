@@ -10,7 +10,7 @@ import Team from "../components/team";
 import User from "../components/user";
 import Story from "../components/story";
 import Subscription from "../components/subscription";
-import Testimonial from "../components/testimonial";
+import Testimonial from "../components/testimoni/testimonial";
 import Footer from "../components/footer";
 
 const TentangKami = () => {

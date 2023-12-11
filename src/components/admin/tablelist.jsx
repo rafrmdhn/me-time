@@ -1,40 +1,45 @@
 import React, { useState, useEffect } from "react";
-
-const userData = [
-    {
-        id: 1,
-        namadepan: "Rafi",
-        namabelakang: "Ramadhan",
-        tesdepresi: 120,
-        tesstress: 50,
-        tesbunuhdiri: 20,
-        tescemas: 150,
-        teskepribadian: "-",
-        tesburnout: "-",
-    },
-    {
-        id: 2,
-        namadepan: "Akhil",
-        namabelakang: "Gautam",
-        tesdepresi: 100,
-        tesstress: 100,
-        tesbunuhdiri: 80,
-        tescemas: 120,
-        teskepribadian: 2,
-        tesburnout: "-",
-    },
-];
+import axios from "axios";
 
 const TableList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState("");
-    const [filteredUser, setFilteredUser] = useState(userData);
+    const [filteredUser, setFilteredUser] = useState([]);
     const [selectAll, setSelectAll] = useState(false);
     const [selectedRows, setSelectedRows] = useState([]);
+    const [userData, setUserData] = useState([]);
     const itemsPerPage = 16;
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+    const fetchData = async () => {
+        try {
+            const userResponse = await axios.get("http://195.35.8.190:4000/api/users");
+            const users = userResponse.data.data;
+
+            const formattedData = users.map((item) => ({
+                id: item.id,
+                firstName: item.firstName,
+                lastName: item.lastName,
+                tesdepresi: item.tesdepresi,
+                tesstress: item.tesstress,
+                tesbunuhdiri: item.tesbunuhdiri,
+                tescemas: item.tescemas,
+                teskepribadian: item.teskepribadian,
+                tesburnout: item.tesburnout,
+            }));
+      
+            setUserData(formattedData);
+            setFilteredUser(formattedData);
+          } catch (error) {
+            console.log(error);
+          }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     const handlePrevPage = () => {
         if (currentPage > 1) {
@@ -76,8 +81,8 @@ const TableList = () => {
 
     useEffect(() => {
         const filtered = userData.filter((data) =>
-            data.namadepan.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            data.namabelakang.toLowerCase().includes(searchQuery.toLowerCase())
+            data.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            data.lastName.toLowerCase().includes(searchQuery.toLowerCase())
         );
         setFilteredUser(filtered);
     }, [searchQuery]);
@@ -160,7 +165,7 @@ const TableList = () => {
                         scope="row"
                         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                     >
-                        {`${user.namadepan} ${user.namabelakang}`}
+                        {`${user.firstName} ${user.lastName}`}
                     </th>
                     <td className="px-6 py-4">{user.tesdepresi}</td>
                     <td className="px-6 py-4">{user.tesstress}</td>

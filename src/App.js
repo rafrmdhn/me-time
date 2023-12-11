@@ -1,25 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, useHistory, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import TentangKami from './pages/TentangKami';
 import TimKami from './pages/TimKami';
-import MentalKonseling from './pages/MentalKonseling';
-import CekKesehatanMental from './pages/CekKesehatan';
-import Meditasi from './pages/Meditasi';
-import ForumDiskusi from './pages/ForumDiskusi';
-import DiscussionsPage from './pages/DiscussionPage';
+import MentalKonseling from './pages/services/MentalKonseling';
+import CekKesehatanMental from './pages/services/CekKesehatan';
+import Meditasi from './pages/services/Meditasi';
+
+import ForumDiskusi from './pages/services/ForumDiskusi';
+import DiscussionsPage from './pages/services/DiscussionPage';
+
 import ContactUs from './pages/ContactUs';
 
-import TestDepresi from './pages/TestDepresi';
-import TestStress from './pages/TestStress';
-import TestSuicide from './pages/TestSuicide';
-import TestCemas from './pages/TestCemas';
-import TestPersonality from './pages/TestPersonality';
-import TestBurnOut from './pages/TestBurnOut';
+import TestDepresi from './pages/test/TestDepresi';
+import TestStress from './pages/test/TestStress';
+import TestSuicide from './pages/test/TestSuicide';
+import TestCemas from './pages/test/TestCemas';
+import TestPersonality from './pages/test/TestPersonality';
+import TestBurnOut from './pages/test/TestBurnOut';
 
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
 import UserProfile from './pages/UserProfile';
 
 import DashboardPage from './pages/admin/DashboardPage';
@@ -66,9 +68,9 @@ function App() {
           <Route path="/TestPersonality" component={TestPersonality}/>
           <Route path="/TestBurnOut" component={TestBurnOut}/>
 
-          <Route path="/Login" component={Login}/>
+          <Route path="/Login" component={Login} />
           <Route path="/Register" component={Register}/>
-          <Route path="/Profile" component={UserProfile}/>
+          <Route path="/Profile/:id" component={UserProfile}/>
 
           <Route path="/admin/Dashboard" component={DashboardPage}/>
           <Route path="/admin/Inbox" component={InboxPage}/>

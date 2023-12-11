@@ -10,7 +10,7 @@ import Psychiatrist from "../components/psychiatrist";
 import Team from "../components/team";
 import Quote from "../components/quote";
 import Subscription from "../components/subscription";
-import Testimonial from "../components/testimonial";
+import Testimonial from "../components/testimoni/testimonial";
 import FaQ from "../components/faq";
 import Blog from "../components/blog";
 import Footer from "../components/footer";

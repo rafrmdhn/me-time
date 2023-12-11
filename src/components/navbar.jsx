@@ -1,17 +1,46 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import axios from "axios";
 import '../App.css';
 
-const Navbar = ({ isDiscussionPage, isAuthenticated  }) => {
+const Navbar = ({ isDiscussionPage }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [firstName, setFirstName] = useState ('');
+    const [lastName, setlastName] = useState ('');
+    const [email, setEmail] = useState('');
+    const [profile, setProfile] = useState('');
+    const [isUserOpen, setIsUserOpen] = useState(false);
+    const localStorageKey = localStorage.getItem('UserKey');
     const dropdownRef = useRef(null);
     const location = useLocation();
+    const history = useHistory();
     const isHomePage = location.pathname === "/Home" || location.pathname === "/home" || location.pathname === "/";
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+    };
+
+    const toggleDropdown = () => {
+        setIsUserOpen(!isUserOpen);
+    }
+
+    const closeDropdown = () => {
+        setIsUserOpen(false);
+      };
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`http://195.35.8.190:4000/api/users/${localStorageKey}`);
+            const { data } = response.data;
+            setFirstName(data.firstName);
+            setlastName(data.lastName);
+            setEmail(data.email);
+            setProfile(data.image);
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
     };
 
     const handleDropdownToggle = () => {
@@ -54,6 +83,16 @@ const Navbar = ({ isDiscussionPage, isAuthenticated  }) => {
         }
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem('UserKey');
+        history.push("/Home");
+      };
+
+    useEffect(() => {
+        if (localStorageKey) {fetchData();}
+        return () => {window.removeEventListener("scroll", handleScroll);};
+    }, [localStorageKey]);
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", handleResize);
@@ -75,41 +114,43 @@ const Navbar = ({ isDiscussionPage, isAuthenticated  }) => {
                         <span className={`self-center text-2xl font-semibold whitespace-nowrap ${isScrolled || isHomePage ? 'text-black' : 'text-white'}`}>MeTime</span>
                     </Link>
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                    {isAuthenticated ? (
-                            <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                                <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                                    <span className="sr-only">Open user menu</span>
-                                    <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo" />
-                                </button>
-                                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
-                                    <div class="px-4 py-3">
-                                    <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                                    <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
-                                    </div>
-                                    <ul class="py-2" aria-labelledby="user-menu-button">
-                                    <li>
-                                        <Link to="/Profile/:id" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</Link>
-                                    </li>
-                                    </ul>
-                                </div>
-                                <button data-collapse-toggle="navbar-user" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
-                                    <span className="sr-only">Open main menu</span>
-                                    <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
+                    {localStorageKey ? (
+                            <div className="relative inline-block">
+                                <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center text-sm pe-1 py-1 font-medium text-white rounded-full bg-violet-700 hover:bg-violet-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-violet-200" type="button"
+                                aria-expanded={isUserOpen}
+                                onClick={toggleDropdown}>
+                                    <span class="sr-only">Open user menu</span>
+                                    <img class="w-8 h-8 me-2 rounded-full" src={profile} alt="user photo"/>
+                                    {firstName} {lastName}
+                                    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                                     </svg>
                                 </button>
+                                {isUserOpen && (
+                                    <div class="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44" id="dropdownAvatar"  onBlur={closeDropdown}>
+                                        <div class="px-4 py-3 text-sm text-gray-900">
+                                            <div className="text-blue-700">{firstName} {lastName}</div>
+                                            <div className="font-medium truncate text-blue-700">{email}</div>
+                                        </div>
+                                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownUserAvatarButton">
+                                            <li>
+                                                <Link to={`/Profile/${localStorageKey}`} className="block px-4 py-2 text-blue-700 hover:bg-gray-100">Settings</Link>
+                                            </li>
+                                        </ul>
+                                        <div class="py-2">
+                                            <Link to="#" className="block px-4 py-2 text-sm text-gray-700 text-red-700 hover:bg-red-100" onClick={handleLogout}>Sign out</Link>
+                                        </div>
+                                    </div>   
+                                )}
                             </div>
                         ) : (
-                            <Link to="/Login" className="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">Sign In</Link>
+                            <Link to="/Login" className="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-3xl text-sm px-7 py-2 text-center">Sign In</Link>
                         )}
                         <button
                         id="navbar-button"
                         type="button"
                         onClick={toggleMenu}
-                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
                         aria-controls="navbar-sticky"
                         aria-expanded="false"
                     >
@@ -139,6 +180,8 @@ const Navbar = ({ isDiscussionPage, isAuthenticated  }) => {
                         <li>
                             <Link to="/TentangKami" className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>About</Link>
                         </li>
+                        {localStorageKey ? ( 
+                            <>
                         <li className="relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
                             <a onClick={handleDropdownToggle} className={`flex justify-center item-center block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Services
                             <svg className={`mt-2 w-2.5 h-2.5 ms-2.5 transform ${
@@ -150,21 +193,50 @@ const Navbar = ({ isDiscussionPage, isAuthenticated  }) => {
                                 <div className="z-10 absolute bg-white divide-y divide-white rounded-lg shadow w-44 dark:bg-white">
                                     <ul className="py-2 text-md text-gray-700 dark:text-gray-200 justify-content">
                                         <li>
-                                            <Link to="/MentalKonseling" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Mental Konseling</Link>
+                                            <Link to="/MentalKonseling" className="block px-4 py-3 hover:bg-gray-100 text-blue-700">Mental Konseling</Link>
                                         </li>
                                         <li>
-                                            <Link to="/CekKesehatan" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Cek Kesehatan Mental</Link>
+                                            <Link to="/CekKesehatan" className="block px-4 py-3 hover:bg-gray-100 text-blue-700">Cek Kesehatan Mental</Link>
                                         </li>
                                         <li>
-                                            <Link to="/Meditasi" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Meditasi</Link>
+                                            <Link to="/Meditasi" className="block px-4 py-3 hover:bg-gray-100 text-blue-700">Meditasi</Link>
                                         </li>
                                         <li>
-                                            <Link to="/ForumDiskusi" className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-blue-400 dark:text-blue-700 dark:hover:text-white">Forum Diskusi</Link>
+                                            <Link to="/ForumDiskusi" className="block px-4 py-3 hover:bg-gray-100 text-blue-700">Forum Diskusi</Link>
                                         </li>
                                     </ul>
                                 </div>
                             )}
                         </li>
+                            </>
+                        ) : (
+                        <li className="relative" onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
+                            <a onClick={handleDropdownToggle} className={`flex justify-center item-center block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Services
+                            <svg className={`mt-2 w-2.5 h-2.5 ms-2.5 transform ${
+                                isDropdownOpen ? "rotate-180" : "rotate-0"
+                                }`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg></a>
+                            {isDropdownOpen && (
+                                <div className="z-10 absolute bg-white divide-y divide-white rounded-lg shadow w-44 dark:bg-white">
+                                    <ul className="py-2 text-md text-gray-700 dark:text-gray-200 justify-content">
+                                        <li>
+                                            <Link to="/Login" className="block px-4 py-3 hover:bg-gray-100 text-blue-700">Mental Konseling</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/Login" className="block px-4 py-3 hover:bg-gray-100 text-blue-700">Cek Kesehatan Mental</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/Login" className="block px-4 py-3 hover:bg-gray-100 text-blue-700">Meditasi</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/Login" className="block px-4 py-3 hover:bg-gray-100 text-blue-700">Forum Diskusi</Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            )}
+                        </li>
+                        )}
                         <li>
                             <Link to="/ContactUs" className={`flex justify-center item-center block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:dark:hover:text-blue-700 dark:hover:bg-white dark:hover:text-blue-700 md:dark:hover:bg-transparent dark:border-gray-700 ${isScrolled || isHomePage ? 'menu-item-scrolled' : 'menu-item-transparent'}`}>Contact Us</Link>
                         </li>
