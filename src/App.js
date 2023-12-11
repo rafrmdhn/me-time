@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, useHistory, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
@@ -20,6 +20,7 @@ import TestCemas from './pages/test/TestCemas';
 import TestPersonality from './pages/test/TestPersonality';
 import TestBurnOut from './pages/test/TestBurnOut';
 
+import AdminAuth from './pages/auth/Admin';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import UserProfile from './pages/UserProfile';
@@ -68,6 +69,7 @@ function App() {
           <Route path="/TestPersonality" component={TestPersonality}/>
           <Route path="/TestBurnOut" component={TestBurnOut}/>
 
+          <Route path="/admin/Login" component={AdminAuth} />
           <Route path="/Login" component={Login} />
           <Route path="/Register" component={Register}/>
           <Route path="/Profile/:id" component={UserProfile}/>

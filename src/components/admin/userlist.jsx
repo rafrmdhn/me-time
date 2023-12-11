@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { formatDistanceToNow, parseISO } from 'date-fns';
+import { useHistory } from 'react-router-dom';
 import { id } from 'date-fns/locale';
 import axios from "axios";
 
@@ -7,10 +8,18 @@ const UserList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [filteredUser, setFilteredUser] = useState([]);
     const [userData, setUserData] = useState([]);
+    const history = useHistory();
     const itemsPerPage = 10;
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+    useEffect(() => {
+        const localStorageKey = localStorage.getItem('AdminKey');
+        if (!localStorageKey) {
+            history.push('/admin/Login');
+        }
+    });
 
     const fetchData = async () => {
         try {

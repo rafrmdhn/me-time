@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { formatDistanceToNow, parseISO } from 'date-fns';
+import { useHistory } from 'react-router-dom';
 import { id } from 'date-fns/locale';
 import axios from "axios";
 
@@ -9,6 +10,14 @@ const Inbox = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredMessages, setFilteredMessages] = useState([]);
     const [userData, setUserData] = useState([]);
+    const history = useHistory();
+
+    useEffect(() => {
+        const localStorageKey = localStorage.getItem('AdminKey');
+        if (!localStorageKey) {
+            history.push('/admin/Login');
+        }
+    });
 
     
     const fetchData = async () => {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import axios from "axios";
 
 const TableList = () => {
@@ -8,10 +9,18 @@ const TableList = () => {
     const [selectAll, setSelectAll] = useState(false);
     const [selectedRows, setSelectedRows] = useState([]);
     const [userData, setUserData] = useState([]);
+    const history = useHistory();
     const itemsPerPage = 16;
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+    useEffect(() => {
+        const localStorageKey = localStorage.getItem('AdminKey');
+        if (!localStorageKey) {
+            history.push('/admin/Login');
+        }
+    });
 
     const fetchData = async () => {
         try {

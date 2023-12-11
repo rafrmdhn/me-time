@@ -3,6 +3,8 @@ import '../App.css';
 import Rafi from '../assets/member/rafi.jpg';
 import Yudha from '../assets/member/yudha.jpg';
 import Azhar from '../assets/member/azhar.jpg';
+import Dzaki from '../assets/member/dzaki.png';
+import Izhar from '../assets//member/izhar.jpg';
 
 const Member = () => {
     return (
@@ -41,7 +43,7 @@ const Member = () => {
                 <div className="grid gap-12 items-center md:grid-cols-3">
                     <div className="space-y-4 text-center">
                         <img className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64" 
-                            src="https://tailus.io/sources/blocks/classic/preview/images/woman1.jpg" alt="woman" loading="lazy" width="640" height="805"/>
+                            src={Dzaki} alt="dzaki" loading="lazy" width="640" height="805"/>
                         <div>
                             <h4 className="text-2xl">Hentoni Doe</h4>
                             <span className="block text-sm text-gray-500">Front End-Back End Developer</span>
@@ -55,7 +57,7 @@ const Member = () => {
                     </div>
                     <div className="space-y-4 text-center">
                         <img className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64" 
-                            src="https://tailus.io/sources/blocks/classic/preview/images/woman.jpg" alt="woman" loading="lazy" width="1000" height="667"/>
+                            src={Izhar} alt="Izhar" loading="lazy" width="1000" height="667"/>
                         <div>
                             <h4 className="text-2xl">Anabelle Doe</h4>
                             <span className="block text-sm text-gray-500">Front End-Back End Developer</span>
