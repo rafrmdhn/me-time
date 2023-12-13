@@ -1,37 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Testimonial = () => {
-  const testimonialsData = [
-    {
-      id: 1,
-      name: "Sandhika Galih",
-      role: "Web Developer",
-      image: "https://yt3.googleusercontent.com/ytc/APkrFKbCNUxuEPo4jL4a7clmkUy2Lgd3ic7Ze04FBbr0SA=s176-c-k-c0x00ffffff-no-rj",
-      content:
-        "Pelayanan konsultasi kesehatan mental mereka sungguh luar biasa! Saya merasa didengar dan dipahami sepenuhnya. Terima kasih atas bantuan yang luar biasa!",
-      rating: 5,
-    },
-    {
-        id: 2,
-        name: "Windah Basudara",
-        role: "Youtuber",
-        image : "https://yt3.googleusercontent.com/ZqDuYMGIahUkyQ_NadOV_oy8OrxFpBI3YHpJOQYHoUmXeJT-66aPW-UB7H_q6fjcNhkBQqZc=s176-c-k-c0x00ffffff-no-rj",
-        content:
-            "Saya sangat terkesan dengan layanan konsultasi kesehatan mental di website ini. Konselor yang terampil dan empatik membantu saya mengatasi tantangan kesehatan mental saya. Terima kasih atas bantuan yang sangat berarti!",
-        rating: 5,
-    },
-    {
-      id: 3,
-      name: "Ahmad Saputra",
-      role: "Freelance Web Designer",
-      content: 
-        "",
-      rating: 5,
-    },
-  ];
+  const [userData, setUserData] = useState([]);
+  const fetchData =  async() => {
+    try {
+      const testimoniResponse = await axios.get("http://195.35.8.190:4000/api/testimoni");
+      const testimoni = testimoniResponse.data.data;
+
+      const userResponse = await axios.get("http://195.35.8.190:4000/api/users");
+      const users = userResponse.data.data;
+
+      const viewedData = testimoni.map((item) => {
+        const user = users.find((u) => u.id === item.userId);
+          return {
+            id: item.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            image: user.image,
+            rating: item.rating,            
+            message: item.message,
+          }
+      });
+      setUserData(viewedData);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
 
   const settings = {
     dots: true,
@@ -50,21 +52,18 @@ const Testimonial = () => {
         Kisah Kesembuhan dari Para Peserta MeTime
       </h3>
       <Slider {...settings}>
-        {testimonialsData.map((testimonial) => (
+        {userData.map((testimonial) => (
           <div key={testimonial.id}>
             <div className="mb-12">
               <div className="mb-6 flex justify-center">
                 <img
                   src={testimonial.image}
-                  alt={testimonial.name}
+                  alt={testimonial.firstName}
                   className="w-32 rounded-full shadow-lg dark:shadow-black/30"
                 />
               </div>
-              <h5 className="mb-4 text-xl font-semibold">{testimonial.name}</h5>
-              <h6 className="mb-4 font-semibold text-primary dark:text-primary-500">
-                {testimonial.role}
-              </h6>
-              <p className="mb-4">{testimonial.content}</p>
+              <h5 className="mb-4 text-xl font-semibold">{testimonial.firstName} {testimonial.lastName}</h5>
+              <p className="mb-4">{testimonial.message}</p>
               <ul className="flex items-center justify-center">
                 {[...Array(testimonial.rating)].map((_, index) => (
                   <li key={index}>
@@ -87,7 +86,6 @@ const Testimonial = () => {
           </div>
         ))}
       </Slider>
-      <div className="mb-20"></div>
     </section>
   );
 };

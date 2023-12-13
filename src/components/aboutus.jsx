@@ -14,20 +14,20 @@ const About = () => {
                                 className="z-40 object-right w-full rounded-md md:h-96 h-68"/>
                         </div>
                         <div className="px-8 mb-10 md:w-1/2 lg:mb-0 text-left">
-                            <p className="mb-2 text-lg font-sm text-black ">
+                            <p className="mb-2 text-md font-sm text-black ">
                                 Tentang Kami
                             </p>
                             <h2 className="pb-2 text-5xl font-semibold md:text-4xl text-black">
                                 Temukan Wajah Dibalik Konsultasi Kesehatan Mental Kami
                             </h2>
-                            <p className="mb-4 mt-10 text-base leading-7 text-black">
+                            <p className="mb-4 mt-10 text-sm leading-7 text-black">
                                 MeTime adalah platform inovatif yang menyatukan terapi mental dan meditasi untuk membantu 
                                 individu mengelola kesehatan mental mereka. Dengan akses mudah, fitur terapeutik, dan dukungan ahli, 
                                 MeTime memberikan solusi terjangkau dan efektif untuk meningkatkan kesejahteraan mental.
                             </p>
-                            <Link to="#"
+                            <Link to="/TentangKami"
                                 className="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">
-                                See Detail
+                                Lihat Detail
                             </Link>
                         </div>
                         

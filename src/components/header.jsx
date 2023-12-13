@@ -11,7 +11,7 @@ const Header = ({ title, description }) => {
                             <div className="vector"></div>
                             <div className="w-full mt-10 ml-10 mr-20">
                                 <h1 className="text-4xl lg:text-5xl text-white font-bold">{title}</h1>
-                                <p className="text-l text-white mb-10 mt-10 mr-20">{description}</p>
+                                <p className="text-md text-white mb-10 mt-10 mr-20">{description}</p>
                             </div>
                         </div>
                     </div>

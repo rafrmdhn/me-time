@@ -10,20 +10,20 @@ const FaQ = () => {
 
   const faqData = [
     {
-      question: "Apa itu konsultan kesehatan mental?",
-      answer: "konsultan kesehatan mental adalah seseorang yang memberikan konseling dan dukungan emosional kepada klien yang mengalami masalah kesehatan mental, serta membantu mereka mengembangkan strategi dan intervensi yang sesuai dengan kebutuhan mereka.",
+      question: "Apa itu MeTime?",
+      answer: "MeTime adalah platform kesehatan mental yang menyediakan layanan terintegrasi, termasuk konseling kesehatan mental, cek kesehatan mental, meditasi, dan Forum Diskusi. Kami bertujuan memberikan solusi holistik untuk membantu individu mengelola kesehatan mental mereka.",
     },
     {
-      question: "How can I make payment using Paypal?",
-      answer: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+      question: "Bagaimana Cek Kesehatan Mental di MeTime Dilakukan?",
+      answer: "Cek Kesehatan Mental MeTime adalah alat penilaian mandiri yang membantu Anda memahami kondisi emosional dan psikologis Anda. Hasilnya dapat memberikan rekomendasi terkait langkah-langkah dan sumber daya yang sesuai untuk perawatan lebih lanjut.",
     },
     {
-      question: "Can I cancel my plan?",
-      answer: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+      question: "Bagaimana Meditasi di MeTime Dapat Membantu?",
+      answer: "Fitur meditasi MeTime menyediakan panduan meditasi yang dapat disesuaikan dengan preferensi Anda. Meditasi dapat membantu meredakan stres, meningkatkan ketenangan, dan membantu Anda mencapai keseimbangan pikiran dan tubuh.",
     },
     {
-      question: "How can I reach to support?",
-      answer: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+      question: "Apa yang Saya Dapatkan dari Bergabung dengan Forum Diskusi MeTime?",
+      answer: "Forum Diskusi MeTime memberikan ruang aman untuk berbagi pengalaman, mendapatkan dukungan komunitas, dan berpartisipasi dalam diskusi kesehatan mental yang membantu mengatasi stigma. Anda dapat berinteraksi dengan individu yang memiliki perjuangan serupa dan membangun komunitas yang mendukung.",
     },
   ];
 
@@ -50,7 +50,7 @@ const FaQ = () => {
                 onClick={() => toggleAccordion(index)}
                 className="flex items-center justify-between w-full px-4 py-5 sm:p-6"
               >
-                <span className="px-4 flex text-lg font-semibold text-black">{faq.question}</span>
+                <span className="px-4 flex text-lg font-semibold text-left text-black">{faq.question}</span>
                 <svg
                   className={`w-6 h-6 text-gray-400 ${activeIndex === index ? "rotate-180" : ""}`}
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +62,8 @@ const FaQ = () => {
                 </svg>
               </button>
 
-              <div className={`px-4 pb-5 sm:px-6 sm:pb-6 ${activeIndex === index ? "" : "hidden"}`}>
-                <p>{faq.answer}</p>
+              <div className={`px-4 pb-5 sm:px-6 sm:pb-6 text-left ${activeIndex === index ? "" : "hidden"}`}>
+                <p >{faq.answer}</p>
               </div>
             </div>
           ))}
@@ -71,7 +71,7 @@ const FaQ = () => {
 
         <p className="text-center text-gray-600 textbase mt-9">
             Tidak menemukan jawaban yang Anda cari?{" "}
-          <Link to="#" title="" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">
+          <Link to="/ContactUs" title="" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">
             Hubungi Kami
           </Link>
         </p>
