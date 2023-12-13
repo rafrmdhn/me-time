@@ -70,12 +70,12 @@ const Forum = () => {
         
       <div className="flex flex-col mx-4 md:mx-auto my-8 max-w-md md:max-w-2xl">
         <form className="mb-5">
-            <div class="flex">
-                <button disabled={isModalOpen} onClick={openModal} data-modal-target="crud-discuss" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-black border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 shadow-md" type="button">
+            <div className="flex">
+                <button disabled={isModalOpen} onClick={openModal} data-modal-target="crud-discuss" className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-black border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 shadow-md" type="button">
                     Buat Diskusi Baru
                 </button>
                 <div class="relative w-full">
-                    <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-black bg-transparent shadow-md rounded-e-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Cari Forum Diskusi..."
+                    <input type="search" id="search-dropdown" className="block p-2.5 w-full z-20 text-sm text-black bg-transparent shadow-md rounded-e-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Cari Judul Diskusi..."
                     value={searchTerm}
                     onChange={handleSearchChange}/>
                 </div>

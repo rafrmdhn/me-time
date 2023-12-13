@@ -60,47 +60,47 @@ const UserList = () => {
     };
 
     return (
-        <div class="mx-auto py-8">
-            <div class="overflow-y-hidden rounded-lg border">
-                <div class="overflow-x-auto">
-                    <table class="w-full">
+        <div className="mx-auto py-8">
+            <div className="overflow-y-hidden rounded-lg border">
+                <div className="overflow-x-auto">
+                    <table className="w-full">
                         <thead>
-                            <tr class="bg-gradient-to-r from-[#91C8E4] to-[#4682A9] text-left text-xs font-semibold uppercase tracking-widest text-white">
-                                <th class="text-center py-3">ID</th>
-                                <th class="text-center py-3 ">Full Name</th>
-                                <th class="text-center py-3">Email</th>
-                                <th class="text-center py-3">Created at</th>
+                            <tr className="bg-gradient-to-r from-[#91C8E4] to-[#4682A9] text-left text-xs font-semibold uppercase tracking-widest text-white">
+                                <th className="text-center py-3">ID</th>
+                                <th className="text-center py-3 ">Nama Pengguna</th>
+                                <th className="text-center py-3">Email</th>
+                                <th className="text-center py-3">Dibuat</th>
                             </tr>
                         </thead>
-                        <tbody class="text-gray-500">
+                        <tbody className="text-gray-500">
                             {filteredUser.slice(indexOfFirstItem, indexOfLastItem).map((user) => (
                                 <tr key={user.id}>
-                                    <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                                        <p class="whitespace-no-wrap">{user.id}</p>
+                                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                                        <p className="whitespace-no-wrap">{user.id}</p>
                                     </td>
-                                    <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <img class="h-full w-full rounded-full" src={user.image} alt={user.firstName} />
+                                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                                        <div className="flex items-center">
+                                            <div className="h-10 w-10 flex-shrink-0">
+                                                <img className="h-full w-full rounded-full" src={user.image} alt={user.firstName} />
                                             </div>
-                                            <div class="ml-3">
-                                                <p class="whitespace-no-wrap">{user.firstName} {user.lastName}</p>
+                                            <div className="ml-3">
+                                                <p className="whitespace-no-wrap">{user.firstName} {user.lastName}</p>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                                        <p class="whitespace-no-wrap">{user.email}</p>
+                                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                                        <p className="whitespace-no-wrap">{user.email}</p>
                                     </td>
-                                    <td class="border-b border-gray-200 bg-white px-5 py-5 text-sm">
-                                        <p class="whitespace-no-wrap">{user.timeAgo}</p>
+                                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">
+                                        <p className="whitespace-no-wrap">{user.timeAgo}</p>
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 </div>
-                <div class="flex flex-col items-center border-t bg-white px-5 py-2 sm:flex-row sm:justify-between">
-                    <span class="text-xs text-gray-600 sm:text-sm">
+                <div className="flex flex-col items-center border-t bg-white px-5 py-2 sm:flex-row sm:justify-between">
+                    <span className="text-xs text-gray-600 sm:text-sm">
                         Showing {" "}
                         {filteredUser.length !== 0
                             ? indexOfFirstItem + 1
@@ -108,7 +108,7 @@ const UserList = () => {
                         to {Math.min(indexOfLastItem, filteredUser.length)} of{" "}
                         {filteredUser.length} Entries
                     </span>
-                    <div class="inline-flex sm:mt-0">
+                    <div className="inline-flex sm:mt-0">
                         <button
                             onClick={handlePrevPage}
                             className="mr-2 h-12 w-12 rounded-full border text-sm font-semibold text-gray-600 transition duration-150 hover:bg-violet-500 hover:text-white"

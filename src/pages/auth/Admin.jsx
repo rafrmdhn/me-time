@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import Logo from "../../assets/img/me-time.png";
 
 const AdminAuth = () => {
     const history = useHistory();
@@ -51,13 +52,13 @@ const AdminAuth = () => {
         <section class="bg-[#F6F4EB] min-h-screen flex items-center justify-center">
             <div class="flex flex-col items-center justify-center w-full max-w-md p-6 sm:p-8">
                 <Link to="/Home" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 text-black">
-                    <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo"/>
+                    <img class="w-12 h-12" src={Logo} alt="logo MeTime"/>
                     MeTime    
                 </Link>
                 <div class="w-full bg-white rounded-3xl shadow border md:mt-0 sm:max-w-md xl:p-0 ">
                     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-black">
-                            Sign in Admin
+                            Masuk Admin
                         </h1>
                         <p className='text-green-500 text-center'>{success}</p>
                         <form class="space-y-4 md:space-y-6 text-left" action="#" onSubmit={adminLogin}>

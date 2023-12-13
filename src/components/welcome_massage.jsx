@@ -15,18 +15,15 @@ const Welcome = () => {
                         <br className="hidden lg:inline-block"/>Mental Anda Di Sini Sambutan 
                         <br className="hidden lg:inline-block"/>Hangat di Konsultasi Kami
                     </h1>
-                    <p className="mb-8 leading-relaxed">Lorem ipsum dolor sit amet consectetur. 
-                        Convallis est urna adipiscing fringilla nulla diam lorem non mauris. 
-                        Ultrices aliquet at quam adipiscing feugiat interdum mattis. 
-                        Placerat donec risus diam sed et. A in ullamcorper ipsum justo vestibulum 
-                        sit cursus.
+                    <p className="mb-8 leading-relaxed">Kini Anda tidak sendiri. Di MeTime, kami menyediakan ruang aman dan 
+                        dukungan untuk membantu Anda menjalani perjalanan kesehatan mental yang bermakna. Kami memahami bahwa 
+                        setiap individu memiliki cerita dan tantangan uniknya sendiri.
                         <br /> <br />
-                        Phasellus ac augue ultricies sem aliquam faucibus sem non volutpat. 
-                        Cursus mattis interdum sem pretium morbi ornare nunc nunc. Pharetra neque 
-                        ut ipsum nunc pretium nisi vivamus dolor. Suspendisse lectus est sed vulputate
-                        ut habitant sagittis semper lacinia.
+                        MeTime, membawa visi dan komitmen untuk menciptakan lingkungan yang mendukung pertumbuhan dan pemulihan. 
+                        Kami percaya bahwa setiap langkah kecil menuju kesehatan mental yang lebih baik sangat berarti. 
+                        Anda bukan hanya sekedar klien, tetapi bagian dari komunitas yang peduli pada kesehatan mental. 
                     </p>
-                    <p classNameName="text-black font-bold">Rafi Ramadhan - Founder of MeTime</p>
+                    <p classNameName="text-black font-bold">Rafi Ramadhan - Pendiri MeTime</p>
                 </div>
             </div>
         </section>

@@ -78,11 +78,11 @@ const Inbox = () => {
     }, [searchQuery, userData]);
 
     return (
-        <main class="flex w-full h-full shadow-lg">
-            <section class="flex flex-col pt-3 w-4/12 bg-gray-50 h-full overflow-y-scroll">
-            <label class="px-3">
-                <input class="rounded-lg p-4 bg-gray-100 transition duration-200 focus:outline-none focus:ring-2 w-full"
-                placeholder="Search..." 
+        <main className="flex w-full h-full shadow-lg">
+            <section className="flex flex-col pt-3 w-4/12 bg-gray-50 h-full overflow-y-scroll">
+            <label className="px-3">
+                <input className="rounded-lg p-4 bg-gray-100 transition duration-200 focus:outline-none focus:ring-2 w-full"
+                placeholder="Cari.." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}/>
             </label>
@@ -105,21 +105,21 @@ const Inbox = () => {
                     ))}
                 </ul>
             </section>
-            <section class="w-full px-4 flex flex-col bg-white"> 
+            <section className="w-full px-4 flex flex-col bg-white"> 
                 {activeMessage ? (
                 <>           
-                <div class="flex justify-between items-center h-48 border-b-2 mb-8">
-                    <div class="flex space-x-4 items-center">
-                    <div class="h-12 w-12  overflow-hidden">
+                <div className="flex justify-between items-center h-48 border-b-2 mb-8">
+                    <div className="flex space-x-4 items-center">
+                    <div className="h-12 w-12  overflow-hidden">
                         <img src={activeMessage?.image} loading="lazy" class="h-full w-full object-cover" />
                     </div>
-                    <div class="flex flex-col">
-                        <h3 class="font-semibold text-lg text-left">{activeMessage?.firstName} {activeMessage?.lastName}</h3>
-                        <p class="text-light text-gray-400">{activeMessage?.email}</p>
+                    <div className="flex flex-col">
+                        <h3 className="font-semibold text-lg text-left">{activeMessage?.firstName} {activeMessage?.lastName}</h3>
+                        <p className="text-light text-gray-400">{activeMessage?.email}</p>
                     </div>
                     </div>
                     <div>
-                    <ul class="flex text-gray-400 space-x-4">
+                    <ul className="flex text-gray-400 space-x-4">
                     <p className="text-md text-gray-400">{activeMessage?.timeAgo}</p>
                         <button>
                             <li class="w-6 h-6">
@@ -130,7 +130,7 @@ const Inbox = () => {
                             </li>
                         </button>
                         <button>
-                            <li class="w-6 h-6">
+                            <li className="w-6 h-6">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -138,7 +138,7 @@ const Inbox = () => {
                             </li>
                         </button>
                         <button>
-                            <li class="w-6 h-6">
+                            <li className="w-6 h-6">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -149,7 +149,7 @@ const Inbox = () => {
                     </div>
                 </div>
                 <section>
-                    <article class="mt-8 text-gray-500 leading-7 tracking-wider">
+                    <article className="mt-8 text-gray-500 leading-7 tracking-wider">
                         <p>{activeMessage.message}</p>
                     </article>
                     <div className="mt-6 border rounded-xl bg-gray-50 mb-3">
@@ -163,14 +163,14 @@ const Inbox = () => {
                                 </svg>
                             </button>
                             <button className="bg-purple-600 text-white px-6 py-2 rounded-xl" onClick={handleReplySubmit}>
-                                Reply
+                                Balas
                             </button>
                         </div>
                     </div>
                 </section>
                 </>
                 ) : (
-                    <p className="text-gray-500">No message selected</p>
+                    <p className="text-gray-500">Tidak ada pesan yang dipilih</p>
                 )}
             </section>
         </main>

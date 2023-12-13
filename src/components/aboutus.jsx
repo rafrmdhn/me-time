@@ -27,7 +27,7 @@ const About = () => {
                             </p>
                             <Link to="/TentangKami"
                                 className="text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">
-                                See Detail
+                                Lihat Detail
                             </Link>
                         </div>
                         
