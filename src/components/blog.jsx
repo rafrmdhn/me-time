@@ -10,7 +10,7 @@ const Blog = () => {
                 Blog
             </p>
             <h3 className="text-4xl font-semibold text-black dark:text-black">
-                Our Blog For You
+                Blog Untuk Anda
             </h3>
             <div className="container px-5 py-20 mx-auto">
                 <div className="flex flex-wrap -m-4">

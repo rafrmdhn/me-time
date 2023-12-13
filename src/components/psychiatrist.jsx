@@ -17,8 +17,8 @@ const Psychiatrist = () => {
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-white font-semibold mb-2">Pertumbuhan Profesional</h1>
-                                <p class="text-white text-xs text-center md:text-justify">"Kesehatan mental adalah fondasi untuk <br />pertumbuhan profesional. Tanpa kesehatan <br />mental yang baik, sulit untuk berkembang <br />dalam karir anda."</p>
+                                <h1 className="text-white font-semibold mb-2">Pertumbuhan Profesional</h1>
+                                <p className="text-white text-xs text-center md:text-justify">"Kesehatan mental adalah fondasi untuk <br />pertumbuhan profesional. Tanpa kesehatan <br />mental yang baik, sulit untuk berkembang <br />dalam karir anda."</p>
                             </div>
                         </div>
                         <div className="flex flex-col md:flex-row text-center md:text-left items-center gap-7 mt-4">
@@ -28,8 +28,8 @@ const Psychiatrist = () => {
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-white font-semibold mb-2">Pertumbuhan Profesional</h1>
-                                <p class="text-white text-xs text-center md:text-justify">"Kesehatan mental adalah fondasi untuk <br />pertumbuhan profesional. Tanpa kesehatan <br />mental yang baik, sulit untuk berkembang <br />dalam karir anda."</p>
+                                <h1 className="text-white font-semibold mb-2">Pertumbuhan Profesional</h1>
+                                <p className="text-white text-xs text-center md:text-justify">"Kesehatan mental adalah fondasi untuk <br />pertumbuhan profesional. Tanpa kesehatan <br />mental yang baik, sulit untuk berkembang <br />dalam karir anda."</p>
                             </div>
                         </div>
                     </div>

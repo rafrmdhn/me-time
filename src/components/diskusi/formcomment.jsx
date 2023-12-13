@@ -31,10 +31,10 @@ const FormComment = () => {
             <p className="text-red-500 text-center">{error}</p> 
             <p className='text-green-500 text-center'>{success}</p>
 
-            <form class="w-full" onSubmit={KirimKomentar}>
+            <form className="w-full" onSubmit={KirimKomentar}>
                 <label for="message" class="block mb-2 text-sm font-medium text-black text-left">Your message</label>
                 <textarea 
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
+                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
                     placeholder="Leave a comment..."
                     id="message" 
                     rows="4" 

@@ -1,8 +1,16 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Link, useHistory } from 'react-router-dom';
 import '../App.css';
 
 const Service = () => {
+    const history = useHistory();
+
+    useEffect(() => {
+        const localStorageKey = localStorage.getItem('UserKey');
+        if (!localStorageKey) {
+            history.push('/Login');
+        }
+    })
     const cardData = [
         {
             title: "Depresi",

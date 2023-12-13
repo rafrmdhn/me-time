@@ -10,20 +10,20 @@ const FaQ = () => {
 
   const faqData = [
     {
-      question: "Apa itu konsultan kesehatan mental?",
-      answer: "konsultan kesehatan mental adalah seseorang yang memberikan konseling dan dukungan emosional kepada klien yang mengalami masalah kesehatan mental, serta membantu mereka mengembangkan strategi dan intervensi yang sesuai dengan kebutuhan mereka.",
+      question: "Apa itu MeTime?",
+      answer: "MeTime adalah platform kesehatan mental yang menyediakan layanan terintegrasi, termasuk konseling kesehatan mental, cek kesehatan mental, meditasi, dan Forum Diskusi. Kami bertujuan memberikan solusi holistik untuk membantu individu mengelola kesehatan mental mereka.",
     },
     {
-      question: "Layanan apa yang Anda tawarkan sebagai konsultan kesehatan mental?",
-      answer: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+      question: "Bagaimana Cek Kesehatan Mental di MeTime Dilakukan?",
+      answer: "Cek Kesehatan Mental MeTime adalah alat penilaian mandiri yang membantu Anda memahami kondisi emosional dan psikologis Anda. Hasilnya dapat memberikan rekomendasi terkait langkah-langkah dan sumber daya yang sesuai untuk perawatan lebih lanjut.",
     },
     {
-      question: "Apa manfaat yang bisa saya dapatkan jika bekerja sama dengan konsultan kesehatan mental?",
-      answer: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+      question: "Bagaimana Meditasi di MeTime Dapat Membantu?",
+      answer: "Fitur meditasi MeTime menyediakan panduan meditasi yang dapat disesuaikan dengan preferensi Anda. Meditasi dapat membantu meredakan stres, meningkatkan ketenangan, dan membantu Anda mencapai keseimbangan pikiran dan tubuh.",
     },
     {
-      question: "Jenis masalah apa saja yang dapat dibantu oleh konsultan kesehatan mental?",
-      answer: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.",
+      question: "Apa yang Saya Dapatkan dari Bergabung dengan Forum Diskusi MeTime?",
+      answer: "Forum Diskusi MeTime memberikan ruang aman untuk berbagi pengalaman, mendapatkan dukungan komunitas, dan berpartisipasi dalam diskusi kesehatan mental yang membantu mengatasi stigma. Anda dapat berinteraksi dengan individu yang memiliki perjuangan serupa dan membangun komunitas yang mendukung.",
     },
   ];
 

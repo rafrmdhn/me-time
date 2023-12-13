@@ -17,7 +17,7 @@ const Feature = () => {
                     melalui sesi konseling online</p>
                     <Link to="/MentalKonseling"
                         className="mx-20 text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">
-                        See Detail
+                        Lihat Detail
                     </Link>
                 </div>
                 <div className="flex flex-col p-3 mx-auto">
@@ -28,7 +28,7 @@ const Feature = () => {
                     Lakukan penilaian kesehatan mental untuk memahami keadaan emosional dan psikologis Anda.</p>
                     <Link to="/CekKesehatan"
                         className="mx-20 text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">
-                        See Detail
+                        Lihat Detail
                     </Link>
                 </div>
                 <div className="flex flex-col p-3 mx-auto">
@@ -39,7 +39,7 @@ const Feature = () => {
                     Temukan ketenangan dan keseimbangan melalui beragam meditasi panduan.</p>
                     <Link to="/Meditasi"
                         className="mx-20 text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800">
-                        See Detail
+                        Lihat Detail
                     </Link>
                 </div>
             </div>

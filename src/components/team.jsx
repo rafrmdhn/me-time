@@ -30,7 +30,7 @@ const Team = () => {
                 </div>
 
                 <div className="mt-8 text-center md:mt-16">
-                    <Link to="/TimKami" title="" className="inline-flex items-center justify-center py-2 font-semibold text-white transition-all duration-200 bg-violet-600 border border-transparent rounded-3xl px-14 hover:bg-violet-700 focus:bg-violet-700" role="button">See Detail</Link>
+                    <Link to="/TimKami" title="" className="inline-flex items-center justify-center py-2 font-semibold text-white transition-all duration-200 bg-violet-600 border border-transparent rounded-3xl px-14 hover:bg-violet-700 focus:bg-violet-700" role="button">Lihat Detail</Link>
                 </div>
             </div>
         </section>

@@ -19,7 +19,7 @@ const Member = () => {
                         <img className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64" 
                             src={Yudha} alt="Yudha" loading="lazy" width="640" height="805"/>
                         <div>
-                            <h4 className="text-2xl">Hentoni Doe</h4>
+                            <h4 className="text-2xl">Yudha Ginong Pratidina</h4>
                             <span className="block text-sm text-gray-500">Front End-Back End Developer</span>
                         </div>
                     </div>
@@ -35,7 +35,7 @@ const Member = () => {
                         <img className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64" 
                             src={Azhar} alt="Azhar" loading="lazy" width="1000" height="667"/>
                         <div>
-                            <h4 className="text-2xl">Anabelle Doe</h4>
+                            <h4 className="text-2xl">Muhammad Azhar Abdurrahman</h4>
                             <span className="block text-sm text-gray-500">Front End-Back End Developer</span>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ const Member = () => {
                         <img className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64" 
                             src={Dzaki} alt="dzaki" loading="lazy" width="640" height="805"/>
                         <div>
-                            <h4 className="text-2xl">Hentoni Doe</h4>
+                            <h4 className="text-2xl">Muhammad Dzaki Firdaus</h4>
                             <span className="block text-sm text-gray-500">Front End-Back End Developer</span>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ const Member = () => {
                         <img className="w-64 h-64 mx-auto object-cover rounded-xl md:w-40 md:h-40 lg:w-64 lg:h-64" 
                             src={Izhar} alt="Izhar" loading="lazy" width="1000" height="667"/>
                         <div>
-                            <h4 className="text-2xl">Anabelle Doe</h4>
+                            <h4 className="text-2xl">Izhar Kadir Saputra</h4>
                             <span className="block text-sm text-gray-500">Front End-Back End Developer</span>
                         </div>
                     </div>
