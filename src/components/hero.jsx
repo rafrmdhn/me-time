@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import '../App.css';
 import HeroAssets from '../assets/img/heroassets.png';
 
 const Hero = () => {
+    const scrollToFeatures = () => {
+        scroll.scrollTo(document.getElementById('features').offsetTop, {
+            duration: 800,
+            smooth: 'easeInOutQuad',
+        });
+    };
+
     return (
         <section className="dark:bg-[#F6F4EB] dark:text-gray-100">
             <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
@@ -13,7 +20,7 @@ const Hero = () => {
                     </h1>
                     <p className="mt-6 mb-8 text-md text-black sm:mb-12">Bersama MeTime, Anda dapat menyesuaikan perjalanan kesehatan mental Anda, mengeksplorasi sumber daya yang relevan, dan meraih kebahagiaan sejati.</p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                        <Link rel="noopener noreferrer" to="#" className="px-8 py-3 text-lg font-semibold rounded bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700  dark:text-white">Mulai Sekarang</Link>
+                        <ScrollLink onClick={scrollToFeatures} rel="noopener noreferrer" to="" className="px-8 py-3 text-lg font-semibold rounded bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-3xl text-sm px-7 py-2 text-center dark:bg-violet-600 dark:hover:bg-violet-700  dark:text-white">Mulai Sekarang</ScrollLink>
                     </div>
                 </div>
                 <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-128 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 mt-20">

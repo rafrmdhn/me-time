@@ -54,7 +54,7 @@ const Footer = () => {
                                 </li>
                                 </ul>
                                 </>
-                            )};
+                            )}
                         </div>
                         <div>
                             <h2 className="text-left mb-6 text-xl font-bold text-gray-900 uppercase dark:text-white">Contact Us</h2>

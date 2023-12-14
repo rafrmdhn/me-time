@@ -31,14 +31,7 @@ const User = () => {
             const usersResponse = await axios.get("http://195.35.8.190:4000/api/users");
             const users = usersResponse.data.data;
 
-            // Filter users who started the test today
-            const todayUsers = users.filter(user => {
-                const userCreatedAt = new Date(user.createdAt).toLocaleDateString();
-                const todayDate = new Date().toLocaleDateString();
-                return userCreatedAt === todayDate;
-            });
-
-            setTodayUsersCount(todayUsers.length);
+            setTodayUsersCount(users.length);
         } catch (error) {
             alert(error);
         }
@@ -51,7 +44,7 @@ const User = () => {
 
     return (
         <div className="bg-gradient-to-r from-[#91C8E4] to-[#4682A9] py-5">
-            <div className="container mx-auto flex flex-col md:flex-row justify-evenly">
+            <div className="container mx-auto flex md:flex-row justify-evenly">
                 <div className="text-center">
                     <h1 className="text-xs md:text-sm mb-2 text-white">Experienced</h1>
                     <h1 className="text-3xl md:text-5xl font-medium text-white">{totalCount}+</h1>

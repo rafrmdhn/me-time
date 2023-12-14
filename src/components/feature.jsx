@@ -4,7 +4,7 @@ import '../App.css';
 
 const Feature = () => {
     return (
-        <section className="py-10 dark:bg-[#F6F4EB]">
+        <section id="features" className="py-10 dark:bg-[#F6F4EB]">
             <h2 className="text-center mb-2 text-md">Layanan</h2>
             <h1 className="text-center justify-center font-semibold text-4xl px-8 mt-6">Meningkatkan Kualitas Hidup dengan Layanan <br />Konsultasi Kesehatan Mental kami </h1>
             <div className="w-full grid grid-cols-1 md:grid-cols-3 mt-10">

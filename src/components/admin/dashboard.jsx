@@ -39,14 +39,7 @@ const Dashboard = () => {
             const usersResponse = await axios.get("http://195.35.8.190:4000/api/users");
             const users = usersResponse.data.data;
 
-            // Filter users who started the test today
-            const todayUsers = users.filter(user => {
-                const userCreatedAt = new Date(user.createdAt).toLocaleDateString();
-                const todayDate = new Date().toLocaleDateString();
-                return userCreatedAt === todayDate;
-            });
-
-            setTodayUsersCount(todayUsers.length);
+            setTodayUsersCount(users.length);
 
             const todayRegisteredUsers = users.filter(user => {
                 const userCreatedAt = new Date(user.createdAt).toLocaleDateString();
