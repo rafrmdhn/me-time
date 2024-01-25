@@ -90,7 +90,6 @@ const Member = () => {
           </div>
           <div className="space-y-4 text-center">
             <div>
-              <h4 className="text-2xl"></h4>
               <span className="block text-sm text-gray-500"></span>
             </div>
           </div>
