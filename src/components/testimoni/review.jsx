@@ -20,11 +20,11 @@ const Review = ({ onClose }) => {
         try {
             e.preventDefault();
             
-            const response = await axios.get(`http://195.35.8.190:4000/api/users/${localStorageKey}`);
+            const response = await axios.get(`http://localhost:4000/api/users/${localStorageKey}`);
 
             const { data } = response.data;
 
-            const response2 = await axios.post('http://195.35.8.190:4000/api/testimoni ', {
+            const response2 = await axios.post('http://localhost:4000/api/testimoni ', {
                 userId : parseInt(localStorageKey),
                 name : `${data.firstName} ${data.lastName}`,
                 rating : parseInt(rating),

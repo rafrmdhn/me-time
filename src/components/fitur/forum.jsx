@@ -21,10 +21,10 @@ const Forum = () => {
 
     const fetchData = async () => {
         try {
-            const forumResponse = await axios.get("http://195.35.8.190:4000/api/forum");
+            const forumResponse = await axios.get("http://localhost:4000/api/forum");
             const forum = forumResponse.data.data;
 
-            const userResponse = await axios.get("http://195.35.8.190:4000/api/users");
+            const userResponse = await axios.get("http://localhost:4000/api/users");
             const users = userResponse.data.data;
 
             const forumData = forum.map((item) => {

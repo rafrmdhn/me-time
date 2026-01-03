@@ -176,7 +176,7 @@ const CemasQuiz = () => {
         const score = calculateScore();
 
         if (!score <= 0 ) {
-            const response = axios.patch(`http://195.35.8.190:4000/api/users/test/${localStorageKey}`, {
+            const response = axios.patch(`http://localhost:4000/api/users/test/${localStorageKey}`, {
                 tescemas: score
             })
       

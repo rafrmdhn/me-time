@@ -8,12 +8,12 @@ const User = () => {
     const countData = async () => {
         try {
             const apiEndpoints = [
-                "http://195.35.8.190:4000/api/test/depresi",
-                "http://195.35.8.190:4000/api/test/stress",
-                "http://195.35.8.190:4000/api/test/bunuhDiri",
-                "http://195.35.8.190:4000/api/test/cemas",
-                "http://195.35.8.190:4000/api/test/kepribadian",
-                "http://195.35.8.190:4000/api/test/burnout",
+                "http://localhost:4000/api/test/depresi",
+                "http://localhost:4000/api/test/stress",
+                "http://localhost:4000/api/test/bunuhDiri",
+                "http://localhost:4000/api/test/cemas",
+                "http://localhost:4000/api/test/kepribadian",
+                "http://localhost:4000/api/test/burnout",
             ];
 
             const responses = await Promise.all(apiEndpoints.map(endpoint => axios.get(endpoint)));
@@ -28,7 +28,7 @@ const User = () => {
 
     const fetchUserData = async () => {
         try {
-            const usersResponse = await axios.get("http://195.35.8.190:4000/api/users");
+            const usersResponse = await axios.get("http://localhost:4000/api/users");
             const users = usersResponse.data.data;
 
             setTodayUsersCount(users.length);

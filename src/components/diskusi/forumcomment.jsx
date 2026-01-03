@@ -11,10 +11,10 @@ const ForumComment = () => {
 
   const fetchData = async () => {
     try {
-      const commentResponse = await axios.get(`http://195.35.8.190:4000/api/forum/comments/${forumId}`);
+      const commentResponse = await axios.get(`http://localhost:4000/api/forum/comments/${forumId}`);
       const comment = commentResponse.data.data;
 
-      const userResponse = await axios.get(`http://195.35.8.190:4000/api/users/`);
+      const userResponse = await axios.get(`http://localhost:4000/api/users/`);
       const users = userResponse.data.data;
 
       const commentData = comment.map((item) => {

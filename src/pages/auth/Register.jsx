@@ -19,7 +19,7 @@ const Register = () => {
         try {
             e.preventDefault();
             
-            const response = await axios.post("http://195.35.8.190:4000/api/users", {
+            const response = await axios.post("http://localhost:4000/api/users", {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,

@@ -8,10 +8,10 @@ const Testimonial = () => {
   const [userData, setUserData] = useState([]);
   const fetchData =  async() => {
     try {
-      const testimoniResponse = await axios.get("http://195.35.8.190:4000/api/testimoni");
+      const testimoniResponse = await axios.get("http://localhost:4000/api/testimoni");
       const testimoni = testimoniResponse.data.data;
 
-      const userResponse = await axios.get("http://195.35.8.190:4000/api/users");
+      const userResponse = await axios.get("http://localhost:4000/api/users");
       const users = userResponse.data.data;
 
       const viewedData = testimoni.map((item) => {

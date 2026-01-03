@@ -21,12 +21,12 @@ const Discussions = () => {
         const fetchData = async () => {
             try {
                 // Ambil data diskusi berdasarkan ID dari API
-                const response = await axios.get(`http://195.35.8.190:4000/api/forum/${id}`);
+                const response = await axios.get(`http://localhost:4000/api/forum/${id}`);
                 const { data } = response.data;
                 setForum(data);
 
                 // Ambil data user berdasarkan Id
-                const userResponse = await axios.get(`http://195.35.8.190:4000/api/users/${data.userId}`);
+                const userResponse = await axios.get(`http://localhost:4000/api/users/${data.userId}`);
                 const { data: userData } = userResponse.data;
 
                 // Pastikan userData memiliki nilai sebelum memanggil setUser

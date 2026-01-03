@@ -23,7 +23,7 @@ const NewDiscuss = ({ closeModal }) => {
         try {
             e.preventDefault();
 
-            const response = await axios.post("http://195.35.8.190:4000/api/forum", {
+            const response = await axios.post("http://localhost:4000/api/forum", {
                 userId : parseInt(localStorageKey),
                 title : title,
                 text : content

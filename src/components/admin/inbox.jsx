@@ -22,12 +22,12 @@ const Inbox = () => {
   const fetchData = async () => {
     try {
       const messageResponse = await axios.get(
-        "http://195.35.8.190:4000/api/messages"
+        "http://localhost:4000/api/messages"
       );
       const messages = messageResponse.data.data;
 
       const userResponse = await axios.get(
-        "http://195.35.8.190:4000/api/users"
+        "http://localhost:4000/api/users"
       );
       const users = userResponse.data.data;
 

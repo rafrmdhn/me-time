@@ -23,7 +23,7 @@ const UserList = () => {
 
     const fetchData = async () => {
         try {
-            const userResponse = await axios.get("http://195.35.8.190:4000/api/users");
+            const userResponse = await axios.get("http://localhost:4000/api/users");
             const users = userResponse.data.data;
 
             const formattedData = users.map((user) => ({

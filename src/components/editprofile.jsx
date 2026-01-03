@@ -23,7 +23,7 @@ const EditProfile = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://195.35.8.190:4000/api/users/${localStorageKey}`);
+            const response = await axios.get(`http://localhost:4000/api/users/${localStorageKey}`);
             const { data } = response.data;
             setFirstName(data.firstName);
             setLastName(data.lastName);
@@ -52,7 +52,7 @@ const EditProfile = () => {
           
               const updatedPassword = password ? password : currentPassword;
           
-              const response = await axios.patch(`http://195.35.8.190:4000/api/users/${localStorageKey}`, {
+              const response = await axios.patch(`http://localhost:4000/api/users/${localStorageKey}`, {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,

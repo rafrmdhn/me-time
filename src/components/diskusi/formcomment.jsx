@@ -14,7 +14,7 @@ const FormComment = () => {
     const KirimKomentar = async (e) => {
         try {
             e.preventDefault();
-            const response = await axios.post(`http://195.35.8.190:4000/api/forum/comments`, {
+            const response = await axios.post(`http://localhost:4000/api/forum/comments`, {
                 userId: parseInt(localStorageKey),
                 forumDiskusiId: parseInt(id),
                 comment: message

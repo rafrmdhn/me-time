@@ -37,7 +37,7 @@ const Dashboard = () => {
   const fetchUserData = async () => {
     try {
       const usersResponse = await axios.get(
-        "http://195.35.8.190:4000/api/users"
+        "http://localhost:4000/api/users"
       );
       const users = usersResponse.data.data;
 
@@ -71,7 +71,7 @@ const Dashboard = () => {
     try {
       // Fetch users from yesterday (modify the API endpoint accordingly)
       const yesterdayUsersResponse = await axios.get(
-        "http://195.35.8.190:4000/api/users"
+        "http://localhost:4000/api/users"
       ); // Modify the endpoint
       const yesterdayUsers = yesterdayUsersResponse.data.data;
 
@@ -93,12 +93,12 @@ const Dashboard = () => {
   const countData = async () => {
     try {
       const todayEndpoints = [
-        "http://195.35.8.190:4000/api/test/depresi",
-        "http://195.35.8.190:4000/api/test/stress",
-        "http://195.35.8.190:4000/api/test/bunuhDiri",
-        "http://195.35.8.190:4000/api/test/cemas",
-        "http://195.35.8.190:4000/api/test/kepribadian",
-        "http://195.35.8.190:4000/api/test/burnout",
+        "http://localhost:4000/api/test/depresi",
+        "http://localhost:4000/api/test/stress",
+        "http://localhost:4000/api/test/bunuhDiri",
+        "http://localhost:4000/api/test/cemas",
+        "http://localhost:4000/api/test/kepribadian",
+        "http://localhost:4000/api/test/burnout",
       ];
 
       const todayResponses = await Promise.all(
@@ -147,62 +147,62 @@ const Dashboard = () => {
   const fetchData = async () => {
     try {
       const tesDepresiResponse = await axios.get(
-        "http://195.35.8.190:4000/api/test/depresi"
+        "http://localhost:4000/api/test/depresi"
       );
       setTesDepresiCount(tesDepresiResponse.data.count);
 
       const tesStressResponse = await axios.get(
-        "http://195.35.8.190:4000/api/test/stress"
+        "http://localhost:4000/api/test/stress"
       );
       setTesStressCount(tesStressResponse.data.count);
 
       const tesBunuhDiriResponse = await axios.get(
-        "http://195.35.8.190:4000/api/test/bunuhDiri"
+        "http://localhost:4000/api/test/bunuhDiri"
       );
       setTesBunuhDiriCount(tesBunuhDiriResponse.data.count);
 
       const tesCemasResponse = await axios.get(
-        "http://195.35.8.190:4000/api/test/cemas"
+        "http://localhost:4000/api/test/cemas"
       );
       setTesCemasCount(tesCemasResponse.data.count);
 
       const tesKepribadianResponse = await axios.get(
-        "http://195.35.8.190:4000/api/test/kepribadian"
+        "http://localhost:4000/api/test/kepribadian"
       );
       setTesKepribadianCount(tesKepribadianResponse.data.count);
 
       const tesBurnOutResponse = await axios.get(
-        "http://195.35.8.190:4000/api/test/burnout"
+        "http://localhost:4000/api/test/burnout"
       );
       setTesBurnOutCount(tesBurnOutResponse.data.count);
 
       const tesDepresiRata = await axios.get(
-        "http://195.35.8.190:4000/api/rata/depresi"
+        "http://localhost:4000/api/rata/depresi"
       );
       setTesDepresiAvg(tesDepresiRata.data._avg.tesdepresi);
 
       const tesStressRata = await axios.get(
-        "http://195.35.8.190:4000/api/rata/stress"
+        "http://localhost:4000/api/rata/stress"
       );
       setTesStressAvg(tesStressRata.data._avg.tesstress);
 
       const tesBunuhDiriRata = await axios.get(
-        "http://195.35.8.190:4000/api/rata/bunuhDiri"
+        "http://localhost:4000/api/rata/bunuhDiri"
       );
       setTesBunuhDiriAvg(tesBunuhDiriRata.data._avg.tesbunuhdiri);
 
       const tesCemasRata = await axios.get(
-        "http://195.35.8.190:4000/api/rata/cemas"
+        "http://localhost:4000/api/rata/cemas"
       );
       setTesCemasAvg(tesCemasRata.data._avg.tescemas);
 
       const tesKepribadianRata = await axios.get(
-        "http://195.35.8.190:4000/api/rata/kepribadian"
+        "http://localhost:4000/api/rata/kepribadian"
       );
       setTesKepribadianAvg(tesKepribadianRata.data._avg.teskepribadian);
 
       const tesBurnOutRata = await axios.get(
-        "http://195.35.8.190:4000/api/rata/burnout"
+        "http://localhost:4000/api/rata/burnout"
       );
       setTesBurnOutAvg(tesBurnOutRata.data._avg.tesburnout);
     } catch (error) {

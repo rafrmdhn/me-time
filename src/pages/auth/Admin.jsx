@@ -21,7 +21,7 @@ const AdminAuth = () => {
       e.preventDefault();
 
       const response = await axios.post(
-        "http://195.35.8.190:4000/api/admin/login",
+        "http://localhost:4000/api/admin/login",
         {
           username: username,
           password: password,
